@@ -38,7 +38,6 @@ function App() {
   return (
     <>
       <Login />
-      {/* login register */}
 
       {/* home */}
 
