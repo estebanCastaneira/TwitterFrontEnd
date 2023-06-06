@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./pages/Login";
+{
+  /* login
+    register */
+}
 
 {
   /* home */
@@ -41,9 +44,8 @@ function App() {
 
       {/* profile */}
 
-      {/* following
-    followers */}
-
+      <Following />
+      <Followers />
       {/* 404 */}
 
       {/* tweet
