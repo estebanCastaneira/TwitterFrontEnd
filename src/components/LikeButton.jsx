@@ -1,18 +1,19 @@
 
 function LikeButton() {
+    const handleSubmit = (e)=> {
+        e.preventDefault();
+
+    }
     return(
-        <form action="/tweet/{ tweet.id}/like" method="post">
-             {/* <% if(tweet.likes.includes(locals.user.id)){} */}
+        <form method="POST" onSubmit={handleSubmit}>
             <button className="likes" type="submit">
-                <img src="../img/icons/like-active.svg" alt="like-active" />
+                <i className="redColor bi bi-heart-fill"></i>
+                <p className="my-0 mx-2 d-inline redColor">Tweets likes length</p>
+                <i className="bi bi-heart"></i>
+                <p className="my-0 mx-2 d-inline">Tweets likes length</p>
             </button>
-            <p className="my-0 mx-2 d-inline redColor">{ tweet.likes.length }</p>
-            {/* <%}else{} */}
-            <button className="likes" type="submit">
-                <img src="../img/icons/like.svg" alt="like" />
-            </button>
-            <p className="my-0 mx-2 d-inline">{ tweet.likes.length }</p>
-                    {/* <%}}            */}
+           
+           
         </form>
     )
 }
