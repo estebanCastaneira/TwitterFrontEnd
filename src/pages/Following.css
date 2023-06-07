@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+body {
+  background-color: white;
+}
+
+.followBtn {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  border-radius: 40px;
+  background-color: #1d9bf0;
+  padding: 4px;
+}
+.followBtn:hover {
+  background-color: #aab6d8;
+  color: black;
+}
+
+h3:hover {
+  border-bottom: 4px solid #1d9bf0;
+}
