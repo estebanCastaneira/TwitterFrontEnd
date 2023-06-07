@@ -2,6 +2,7 @@
 
 #parent_container {
   background-color: #074874;
+  overflow: auto;
 }
 #child_container {
   font-family: "Inter", sans-serif;

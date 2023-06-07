@@ -1,5 +1,6 @@
 import React from "react";
-import ProfileHeader from "./components/ProfileHeader";
+import ProfileHeader from "../components/ProfileHeader";
+import "./profile_styles.css";
 
 function Profile() {
   return (
