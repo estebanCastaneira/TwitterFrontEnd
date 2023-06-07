@@ -11,13 +11,14 @@ import { useParams } from "react-router-dom";
 function Profile() {
   const params = useParams();
   const [userInfo, setUserInfo] = useState(null);
-  const token = useSelector((state) => state.token);
+  const token = useSelector((state) => state.user.token);
+  console.log(token);
 
   useEffect(() => {
     async function getUserInfo() {
       const response = await axios({
         method: "GET",
-        url: "http://localhost:3000/users/profile/", //TODO
+        url: "http://localhost:3000/users/profile",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -30,7 +31,6 @@ function Profile() {
     }
     getUserInfo();
   }, []);
-  // response.data && console.log(userInfo);
 
   return (
     <>
