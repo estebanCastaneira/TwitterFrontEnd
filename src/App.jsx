@@ -1,5 +1,10 @@
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Login from "./pages/Login";
+import Followers from "./pages/Followers";
+import Following from "./pages/Following";
+
 {
   /* login
     register */
@@ -13,10 +18,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
   /* profile */
 }
 
-//
-import Following from "./pages/Following";
-import Followers from "./pages/Followers";
-//
+{
+  /* following
+    followers */
+}
 
 {
   /* 404 */
@@ -37,9 +42,10 @@ import "./App.css";
 function App() {
   return (
     <>
-      {/* login
-    register */}
-
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Login />} />
+      </Routes>
       {/* home */}
 
       {/* profile */}
