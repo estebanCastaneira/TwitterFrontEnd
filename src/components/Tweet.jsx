@@ -1,6 +1,6 @@
 import LikeButton from "./LikeButton";
 import DeleteTweet from "./DeleteTweet";
-
+import "./tweet_styles.css";
 function Tweet() {
     return(
         <div className="card-footer tweet p-0 mt-2">
