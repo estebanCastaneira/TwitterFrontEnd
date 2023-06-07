@@ -5,7 +5,7 @@ import "./login_styles.css";
 
 import { useDispatch } from "react-redux";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const [usernameValue, setUsername] = useState("");
@@ -104,7 +104,7 @@ function Login() {
                       Login
                     </button>
                     <p className="small mt-2 pt-1 mb-0 text-center">
-                      Don't have an account? <a href="/register">Sign Up</a>
+                      Don't have an account? <Link to="/register">Sign Up</Link>
                     </p>
                   </div>
                 </form>
@@ -197,7 +197,7 @@ function Login() {
                       Sign up
                     </button>
                     <p className="small mt-2 pt-1 mb-0 text-center">
-                      Already have an account? <a href="/login">Sign in</a>
+                      Already have an account? <Link to="/login">Sign in</Link>
                     </p>
                   </div>
                 </form>
