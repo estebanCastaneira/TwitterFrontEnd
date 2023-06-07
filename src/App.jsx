@@ -37,9 +37,10 @@ import "./App.css";
 function App() {
   return (
     <>
-      {/* login
-    register */}
-
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Login />} />
+      </Routes>
       {/* home */}
 
       {/* profile */}
