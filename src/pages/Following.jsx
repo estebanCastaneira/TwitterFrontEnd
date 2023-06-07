@@ -1,12 +1,16 @@
 import React from "react";
 import "./Following.css";
+import SidebarRight from "../components/SidebarRight";
+import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";
 
 function Following() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-1 col-md-2">left_sidebar</div>
+        <div className="col-1 col-md-2">
+          <Sidebar />
+        </div>
         <div className="col-11 col-md-6 col-lg-5">
           <div className="container-sm mw-50">
             <div className="d-flex flex-row align-items-center">
@@ -76,7 +80,9 @@ function Following() {
             {/* <!-- tarjeta FOLLOWERS --> */}
           </div>
         </div>
-        <div className="col-md-4">right sidebar</div>
+        <div className="col-md-4">
+          <SidebarRight />
+        </div>
       </div>
     </div>
   );
