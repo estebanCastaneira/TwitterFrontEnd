@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
-body {
+#parent_container {
   background-color: #074874;
 }
-#parent_container {
+#child_container {
   font-family: "Inter", sans-serif;
   max-width: 1200px;
   margin: 141px auto;
