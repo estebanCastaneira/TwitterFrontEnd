@@ -6,8 +6,10 @@ import Tweet from "../components/Tweet";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function Profile() {
+  const params = useParams();
   const [userInfo, setUserInfo] = useState(null);
   const token = useSelector((state) => state.token);
 
