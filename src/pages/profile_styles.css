@@ -54,6 +54,9 @@ h3 {
 #tweets {
   border-bottom: 5px solid #1d9bf0;
   display: inline-block;
+  font-size: 1rem;
+  font-weight: bolder;
+  padding-bottom: 10px;
 }
 
 #userTweet {
