@@ -1,10 +1,10 @@
 import SidebarRight from "../components/SidebarRight";
 import Sidebar from "../components/Sidebar";
-import ProfileHeader from "../components/ProfileHeader";
-import "./profile_styles.css";
 import Tweet from "../components/Tweet";
+import TweetForm from "../components/TweetForm";
+import "./profile_styles.css";
 
-function Profile() {
+function Home() {
   return (
     <>
       <div className="container">
@@ -13,12 +13,9 @@ function Profile() {
             <Sidebar />
           </div>
           <div className="col-8 col-lg-6 col-xl-5 p-0">
-            <ProfileHeader />
-            <div className="row position-relative">
-              <Tweet />
-            </div>
+            <TweetForm />
+            <Tweet />
           </div>
-
           <div className="col-2 col-lg-4">
             <SidebarRight />
           </div>
@@ -28,4 +25,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Home;

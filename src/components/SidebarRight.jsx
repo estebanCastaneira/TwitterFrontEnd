@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 function SidebarRight() {
   return (
     <div className="row">
-      <aside className="d-none d-lg-block m-3">
-        <div className="bg-body-tertiary rounded p-3 my-3">
+      <aside className="d-none d-lg-block">
+        <div className="bg-body-tertiary rounded p-3">
           <h3 className="mb-3 fs-5">What's happening</h3>
           <div className="lh-sm">
             <small className="m-0 text-secondary">Programin • Trending</small>
@@ -12,9 +12,7 @@ function SidebarRight() {
             <small className="m-0 text-secondary">97.5K Tweets</small>
           </div>
           <div className="lh-sm my-3">
-            <small className="m-0 text-secondary">
-              Entertainment • Trending
-            </small>
+            <small className="m-0 text-secondary">Entertainment • Trending</small>
             <h4 className="m-0 fs-6">#StarWars</h4>
             <small className="m-0 text-secondary">97.5K Tweets</small>
           </div>
@@ -42,9 +40,7 @@ function SidebarRight() {
                 <div className="card-body">
                   <h5 className="card-title mb-0 p-0 fs-6">Hack Academy</h5>
                   <p className="card-text">
-                    <small className="text-body-tertiary">
-                      @HackAcademyDev
-                    </small>
+                    <small className="text-body-tertiary">@HackAcademyDev</small>
                   </p>
                 </div>
               </div>

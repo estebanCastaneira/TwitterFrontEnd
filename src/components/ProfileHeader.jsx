@@ -25,22 +25,22 @@ function ProfileHeader() {
           <div className="row d-flex justify-content-between p-0 m-0">
             <div className="col-6 align-self-end">
               <div id="userName" className="ms-2">
-                <h2 className="fs-4 m-0">Nombre de Usuario</h2>
-                <p className="fw-light m-0">@Nombredeusuario</p>
+                <h1 className="m-0 main-username">Nombre de Usuario</h1>
+                <p className="main-usertext m-0 text-body-tertiary">@Nombredeusuario</p>
               </div>
             </div>
             <div className="col-6 text-end align-self-end">
               <div className="d-flex justify-content-end gap-2">
                 <a className="text-decoration-none text-black" href="#">
                   <p className="m-0 d-inline-block">
-                    <strong className="text-black">123 </strong>
-                    Followers
+                    <strong className="text-black follow-number">123 </strong>
+                    <span className="main-usertext text-body-tertiary">Followers</span>
                   </p>
                 </a>
                 <a className="text-decoration-none text-black" href="#">
                   <p className="m-0 d-inline-block">
-                    <strong className="text-black">123 </strong>
-                    Following
+                    <strong className="text-black follow-number">123 </strong>
+                    <span className="main-usertext text-body-tertiary">Following</span>
                   </p>
                 </a>
               </div>

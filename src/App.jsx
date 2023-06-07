@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 
 {
@@ -8,9 +8,7 @@ import Login from "./pages/Login";
     register */
 }
 
-{
-  /* home */
-}
+import Home from "./pages/Home";
 
 import Profile from "./pages/Profile";
 
@@ -35,48 +33,45 @@ import Followers from "./pages/Followers";
 
 import "./App.css";
 
-
 function App() {
   return (
     <>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/following" element={<Following />}/>
-        <Route path="/followers" element={<Followers />}/>
+        <Route path="/following" element={<Following />} />
+        <Route path="/followers" element={<Followers />} />
       </Routes>
       {/* home */}
 
-    {/* profile */}
+      {/* profile */}
 
-    
-  
+      {/* 404 */}
 
-    {/* 404 */}
-    
-{/* navBar
+      {/* navBar
     sidebar */}
 
-    {/* login
+      {/* login
     register */}
 
-    {/* home */}
+      {/* home */}
 
-    {/* profile */}
+      {/* profile */}
 
-    {/* following
+      {/* following
     followers */}
 
-    {/* 404 */}
-    
-  {/* tweet
+      {/* 404 */}
+
+      {/* tweet
     tweetform */}
 
-    {/* navBar
+      {/* navBar
     sidebar */}
     </>
-  )
+  );
 }
 
 export default App;
