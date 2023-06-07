@@ -24,7 +24,7 @@ function Login() {
     event.preventDefault();
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/login",
+      url: "http://localhost:3000/token",
       data: {
         email: emailValue,
         password: passwordValue,
