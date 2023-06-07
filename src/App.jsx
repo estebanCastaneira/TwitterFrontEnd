@@ -1,5 +1,10 @@
+import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Login from "./pages/Login";
+import Followers from "./pages/Followers";
+import Following from "./pages/Following";
+
 {
   /* login
     register */
@@ -37,8 +42,9 @@ import "./App.css";
 function App() {
   return (
     <>
-      <Login />
-
+      <Routes>
+        <Route path="/login" element={<Login />} />
+      </Routes>
       {/* home */}
 
       {/* profile */}
