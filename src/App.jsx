@@ -1,10 +1,5 @@
-import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Login from "./pages/Login";
-import Followers from "./pages/Followers";
-import Following from "./pages/Following";
-
 {
   /* login
     register */
@@ -18,10 +13,10 @@ import Following from "./pages/Following";
   /* profile */
 }
 
-{
-  /* following
-    followers */
-}
+//
+import Following from "./pages/Following";
+import Followers from "./pages/Followers";
+//
 
 {
   /* 404 */
