@@ -81,3 +81,24 @@ h3 {
 textarea {
   resize: none;
 }
+
+.tweet-text {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  /* Agrega cualquier otra personalización deseada */
+}
+
+.username,
+.follow-number {
+  font-size: 0.8rem;
+}
+
+.main-username {
+  font-size: 1.3rem;
+  font-weight: bolder;
+}
+
+.main-usertext {
+  font-size: 0.8rem;
+  font-weight: lighter;
+}
