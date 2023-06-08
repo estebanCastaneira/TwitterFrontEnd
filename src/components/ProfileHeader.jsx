@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-function ProfileHeader() {
-  const {user} = useSelector((state) => state.user )
-  return (
+function ProfileHeader({user}) {
+  
+  return user && (
     <div>
       <div id="mainHeader" className="container-sm mw-50 pb-0 border">
         <div id="profileHeader" className="row position-relative">

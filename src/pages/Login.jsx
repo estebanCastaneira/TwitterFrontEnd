@@ -23,7 +23,7 @@ function Login() {
 
   async function handleLogin(event, identifier = identifierValue) {
     event.preventDefault();
-    console.log([identifier, passwordValue]);
+  
     const response = await axios({
       method: "POST",
       url: "http://localhost:3000/token",

@@ -24,7 +24,7 @@ function Profile() {
         },
       });
       setUserInfo(response.data);
-      console.log(response.data);
+      
     }
     getUserInfo();
   }, []);
@@ -37,9 +37,17 @@ function Profile() {
             <Sidebar />
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
-           {userInfo && <ProfileHeader/>}
+           <ProfileHeader user={userInfo}/>
             <div className="row position-relative">
-              {userInfo && userInfo.tweets.map(tweet => <Tweet key={tweet._id} tweet={tweet}/>)}
+              {userInfo && userInfo.tweets.map(tweet => {
+                tweet.author = {
+                  avatar : userInfo.avatar,
+                  username : userInfo.username,
+                  firstname : userInfo.firstname,
+                  lastname : userInfo.lastname
+                }
+              return <Tweet key={tweet._id} tweet={tweet}/> 
+              })}
                
             </div>
           </div>

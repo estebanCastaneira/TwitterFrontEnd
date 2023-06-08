@@ -16,7 +16,7 @@ import tweetReducer from "./tweetSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
-  tweet: tweetReducer
+  tweets: tweetReducer
 })
 const persistConfig = {
   key: 'root',

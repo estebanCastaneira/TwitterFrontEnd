@@ -3,6 +3,7 @@ import DeleteTweet from "./DeleteTweet";
 import "./tweet_styles.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 function Tweet({tweet}) {
  
   return (
@@ -42,7 +43,7 @@ function Tweet({tweet}) {
           {/* <!-- tweet text --> */}
           <div className="col-12 d-flex justify-content-between align-items-center">
             <div className="d-flex">
-              <LikeButton likes={tweet.likes} />
+              <LikeButton tweet={tweet} likes={tweet.likes} />
             </div>
             <DeleteTweet />
           </div>

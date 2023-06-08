@@ -1,15 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const tweetSlice = createSlice({
-  name: "tweet",
+  name: "tweets",
   initialState: [],
   reducers: {
     setTweets(state, action) {
-        state.push(...action.payload)
+        return action.payload
     },
+    setLikes(state, action) {
+      console.log("llegamos hasta acá")
+    }
   },
 });
 
 const { actions, reducer } = tweetSlice;
-export const { setTweets } = actions;
+export const { setTweets, setLikes } = actions;
 export default reducer;
