@@ -1,11 +1,12 @@
 import React from "react";
 import FollowButton from "./FollowButton";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function ProfileHeader() {
   return (
     <div>
-      <div id="mainHeader">
+      <div id="mainHeader" className="container-sm mw-50 pb-0 border">
         <div id="profileHeader" className="row position-relative">
           <div id="containerPhoto">
             <img
@@ -31,18 +32,18 @@ function ProfileHeader() {
             </div>
             <div className="col-12 col-md-6 text-md-end align-self-end mt-2 mt-md-0 ps-2">
               <div className="d-flex p-0 justify-content-md-end gap-2">
-                <a className="text-decoration-none text-black" href="#">
+                <Link className="text-decoration-none text-black" to="/Followers">
                   <p className="m-0 d-inline-block">
                     <strong className="text-black follow-number">123 </strong>
                     <span className="main-usertext text-body-tertiary">Followers</span>
                   </p>
-                </a>
-                <a className="text-decoration-none text-black" href="#">
+                </Link>
+                <Link className="text-decoration-none text-black" to="/Following">
                   <p className="m-0 d-inline-block">
                     <strong className="text-black follow-number">123 </strong>
                     <span className="main-usertext text-body-tertiary mt-0">Following</span>
                   </p>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

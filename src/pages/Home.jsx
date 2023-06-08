@@ -31,7 +31,7 @@ function Home() {
   return (
     <>
       <div className="container">
-        <div className="row">
+        <div className="row m-0 p-0">
           <div className="col-2 col-lg-2">
             <Sidebar />
           </div>

@@ -2,11 +2,17 @@ import React from "react";
 import "./Following.css";
 import SidebarRight from "../components/SidebarRight";
 import Sidebar from "../components/Sidebar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FollowersNav from "../components/FollowersNav";
 import FollowersCard from "../components/FollowersCard";
 
 function Followers() {
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="container">
       <div className="row m-0 p-0">
@@ -17,7 +23,7 @@ function Followers() {
           <div className="container-sm mw-50 pb-0 border">
             <div className="d-flex flex-row align-items-center">
               <div className="col-1 align-item-center me-2">
-                <Link className="text-black" to="#">
+                <Link className="text-black" onClick={handleGoBack}>
                   <i class="bi bi-arrow-left circle-hover"></i>
                 </Link>
               </div>

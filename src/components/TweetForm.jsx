@@ -7,7 +7,7 @@ function TweetForm() {
   return (
     <div>
       <form
-        className="container border d-flex flex-column justify-content-end pt-2"
+        className="container border d-flex flex-column justify-content-end p-2 pb-0"
         method="post"
         onSubmit={handleSubmit}
         style={{ height: "150px" }}

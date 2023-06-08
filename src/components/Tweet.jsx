@@ -5,7 +5,7 @@ import "./tweet_styles.css";
 function Tweet() {
   return (
     <div className="card-footer tweet">
-      <div className="d-flex row g-0 justify-content-between border p-2">
+      <div className="d-flex row g-0 justify-content-between border border-top-0 p-2">
         <div className="col-1 align-items-start m-0">
           <a className="text-decoration-none text-black" href="#">
             <img

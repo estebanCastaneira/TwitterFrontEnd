@@ -32,17 +32,14 @@ function Profile() {
   return (
     <>
       <div className="container">
-        <div className="row">
+        <div className="row m-0 p-0">
           <div className="col-2 col-lg-2">
             <Sidebar />
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
             <ProfileHeader />
-            <div className="row position-relative">
-              <Tweet />
-            </div>
+            <Tweet />
           </div>
-
           <div className="col-2 col-lg-4">
             <SidebarRight />
           </div>
