@@ -13,21 +13,12 @@ function Followers() {
         <div className="col-2 col-lg-2">
           <Sidebar />
         </div>
-<<<<<<< Updated upstream
-        <div className="col-11 col-md-6 col-lg-5">
-          <div className="container-sm mw-50">
-            <div className="d-flex flex-row align-items-center">
-              <div className="mx-3">
-                <Link className="text-black" to="/<%= locals.user.username %>">
-                  <i className="bi bi-arrow-left fs-4 fw-600"></i>
-=======
         <div className="col-8 col-lg-6 col-xl-5 p-0">
           <div className="container-sm mw-50 pb-0 border border-top-0 border-left-0 border-right-0">
             <div className="d-flex flex-row align-items-center justify-content-start ">
               <div className="me-3">
                 <Link className="text-black" to="#">
                   <i class="bi bi-arrow-left fs-4 fw-600"></i>
->>>>>>> Stashed changes
                 </Link>
               </div>
               <div>
