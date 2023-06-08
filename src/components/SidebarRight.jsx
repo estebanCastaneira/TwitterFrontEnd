@@ -36,11 +36,11 @@ function SidebarRight() {
                   />
                 </div>
               </div>
-              <div className="col-6 text-start">
+              <div className=" col-4 col-md-6 text-start">
                 <div className="card-body">
                   <h5 className="card-title mb-0 p-0 fs-6">Hack Academy</h5>
                   <p className="card-text">
-                    <small className="text-body-tertiary">@HackAcademyDev</small>
+                    <small className="text-body-tertiary">@Hack Academy</small>
                   </p>
                 </div>
               </div>

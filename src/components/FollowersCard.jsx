@@ -4,8 +4,8 @@ function FollowersCard() {
   return (
     <div className="card-footer pe-2 align-items-center py-3">
       <div className="row g-0 justify-content-between align-items-center">
-        <div className="col-3 col-md-2 align-items-start m-0">
-          <div className="d-flex justify-content-center align-items-center">
+        <div className="col-2 align-items-start m-0">
+          <div className="d-flex justify-content-around align-items-center ps-3 ps-md-0">
             <img
               src="/img/foto_prueba.jpg"
               className="rounded-circle"
@@ -15,7 +15,7 @@ function FollowersCard() {
             />
           </div>
         </div>
-        <div className=" col-5 col-md-7">
+        <div className="col-6 col-md-7">
           <div className="card-body">
             <h5 className="card-title mb-0 p-0 fs-6">Firstname Lastname</h5>
             <p className="card-text">
@@ -23,7 +23,7 @@ function FollowersCard() {
             </p>
           </div>
         </div>
-        <div className="col-4 col-md-3">
+        <div className="col-3">
           {/* <% if (userFollower.followers.includes(user._id)) { %> */}
           {/*<div className="text-center">
             <form

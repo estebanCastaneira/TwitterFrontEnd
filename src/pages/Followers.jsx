@@ -13,15 +13,15 @@ function Followers() {
         <div className="col-2 col-lg-2">
           <Sidebar />
         </div>
-        <div className="col-8 col-lg-6 col-xl-5 p-0">
+        <div className="col-9 col-lg-6 col-xl-5 p-0">
           <div className="container-sm mw-50 pb-0 border">
-            <div className="d-flex flex-row align-items-center justify-content-start ">
-              <div className="me-3">
+            <div className="d-flex flex-row align-items-center">
+              <div className="col-1 align-item-center me-2">
                 <Link className="text-black" to="#">
-                  <i class="bi bi-arrow-left fs-4 fw-600"></i>
+                  <i class="bi bi-arrow-left circle-hover"></i>
                 </Link>
               </div>
-              <div>
+              <div className="col-10 col-md-8 ps-2 ps-md-0">
                 <h1 className="m-0 main-username mt-3">Firstname Lastname</h1>
                 <p className="main-usertext m-0 text-body-tertiary">@username</p>
               </div>
@@ -33,6 +33,7 @@ function Followers() {
             <div className="row border-top">
               <FollowersCard />
               <FollowersCard />
+
               {/* //   <!-- tarjeta FOLLOWERS --> */}
             </div>
           </div>

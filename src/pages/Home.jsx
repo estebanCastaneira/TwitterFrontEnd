@@ -36,7 +36,7 @@ function Home() {
           <div className="col-2 col-lg-2">
             <Sidebar />
           </div>
-          <div className="col-8 col-lg-6 col-xl-5 p-0">
+          <div className="col-9 col-lg-6 col-xl-5 p-0">
             <TweetForm />
             <Tweet />
           </div>
