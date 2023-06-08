@@ -2,25 +2,33 @@
 
 #parent_container {
   background-color: #074874;
-  overflow: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 #child_container {
   font-family: "Inter", sans-serif;
-  max-width: 1200px;
-  margin: 141px auto;
+  max-width: 900px;
+  margin: auto;
 }
 #row {
   height: 100%;
 }
-#welcome_messasge {
+#welcome_message {
   background-color: #1d9bf0;
 }
-#welcome_messasge span {
+#welcome_message span {
   color: #ffffff;
 }
 #form {
   box-sizing: border-box;
-  padding: 100px 50px;
+  padding: 80px 50px;
   background-color: #ffffff;
 }
 #form input {
