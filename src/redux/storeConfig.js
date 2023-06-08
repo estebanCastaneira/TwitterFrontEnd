@@ -10,12 +10,13 @@ import {
   REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-
 import userReducer from "./userSlice";
+import tweetReducer from "./tweetSlice";
 
 
 const rootReducer = combineReducers({
   user: userReducer,
+  tweet: tweetReducer
 })
 const persistConfig = {
   key: 'root',
