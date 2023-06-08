@@ -1,15 +1,47 @@
-#tweetButton {
+#tweetButton, #logoutButton {
   color: #ffffff;
   font-weight: 500;
   font-size: 16px;
   border: 1px solid transparent;
   border-radius: 40px;
-  background-color: #1d9bf0;
   padding: 4px;
+  
+}
+#tweetButton{
+  background-color: #1d9bf0;
+
+}
+#logoutButton {
+  background-color: #d93434;
+
 }
 
 #tweetButton:hover {
   background-color: #ffffff;
   border: 1px solid black;
   color: black;
+}
+
+#logoutButton:hover {
+  background-color: #ffffff;
+  border: 1px solid #d93434;
+  color: #d93434;
+}
+
+#leftSidebar {
+  min-height: 90vh;
+}
+#sidebarTweet,
+#sidebarIconTweet {
+  background-color: #1d9bf0;
+  border: none;
+  color: #ffffff;
+}
+#sidebarIconTweet,
+#sidebarIconLogout {
+  margin-right: -7px;
+}
+#sidebarIconLogout {
+  background-color: #dc3545;
+  color: #ffffff;
 }

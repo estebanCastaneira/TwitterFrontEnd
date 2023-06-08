@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import TweetButton from "./TweetButton";
 import { useSelector } from "react-redux";
+import "./tweet_button_styles.css"
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -58,23 +59,28 @@ function Sidebar() {
           </Link>
 
           <Button
-            variant="primary"
-            className="btn btn-primary mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
+            id="tweetButton"
+            className="btn mb-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
             onClick={handleShow}
           >
             Tweet
           </Button>
-
+          <Button  id="sidebarIconTweet" className="rounded-circle p-2 d-lg-none" href="#" role="button">
+          
+            <img src="/icons/write.svg" style={{height: "21px"}} />
+    
+          </Button>
           <Link
             id="sidebarIconLogout"
             className="rounded-circle p-2 d-lg-none d-flex aling-self-end "
             to="#"
             role="button"
           >
-            <img src="../img/icons/logout.svg" style={{ height: "21px" }} />
+            <img src="/icons/logout.svg" style={{ height: "21px" }} />
           </Link>
           <Link
-            className="btn btn-danger mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
+            id="logoutButton"
+            className="btn mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
             to="/login"
             role="button"
             onClick={handleLogout}
@@ -97,7 +103,7 @@ function Sidebar() {
                 <div className="col-1 align-items-start m-0">
                   <a className="text-decoration-none text-black" href="#">
                     <img
-                      src="/img/foto_prueba.jpg"
+                      src={user.avatar}
                       className="rounded-circle"
                       width="50px"
                       height="50px"
