@@ -8,16 +8,62 @@ body {
   color: #ffffff;
   font-weight: 500;
   font-size: 16px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 40px;
   background-color: #1d9bf0;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
   padding: 4px;
 }
 .followBtn:hover {
-  background-color: #aab6d8;
+  background-color: #ffffff;
+  border: 1px solid black;
   color: black;
 }
 
-h3:hover {
+.followingBtn {
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 40px;
+  background-color: #ffffff;
+  padding: 4px;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    color 0.3s ease-in-out;
+}
+.followingBtn:hover {
+  background-color: #1d9bf0;
+  border: 1px solid transparent;
+  color: white;
+}
+
+.follow-text:hover {
   border-bottom: 4px solid #1d9bf0;
+  padding-bottom: 10px;
+}
+
+.follow-text {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bolder;
+  margin-bottom: 0;
+  border-bottom: 4px solid transparent;
+  padding-bottom: 10px;
+  transition: border-bottom 0.3s ease-in-out;
+}
+
+.circle-hover {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  line-height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.circle-hover:hover {
+  background-color: #ececec;
 }

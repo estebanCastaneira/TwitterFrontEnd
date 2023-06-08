@@ -11,18 +11,16 @@ import { useParams } from "react-router-dom";
 function Profile() {
   const params = useParams();
   const [userInfo, setUserInfo] = useState(null);
-  const token = useSelector((state) => state.token);
+  const token = useSelector((state) => state.user.token);
+  console.log(token);
 
   useEffect(() => {
     async function getUserInfo() {
       const response = await axios({
         method: "GET",
-        url: "http://localhost:3000/users/profile/", //TODO
+        url: `http://localhost:3000/users/${params.username}`,
         headers: {
           Authorization: `Bearer ${token}`,
-        },
-        params: {
-          username: "@Pantoja",
         },
       });
       setUserInfo(response.data);
@@ -30,7 +28,6 @@ function Profile() {
     }
     getUserInfo();
   }, []);
-  // response.data && console.log(userInfo);
 
   return (
     <>
@@ -39,7 +36,7 @@ function Profile() {
           <div className="col-2 col-lg-2">
             <Sidebar />
           </div>
-          <div className="col-8 col-lg-6 col-xl-5">
+          <div className="col-9 col-lg-6 col-xl-5 p-0">
             <ProfileHeader />
             <div className="row position-relative">
               <Tweet />

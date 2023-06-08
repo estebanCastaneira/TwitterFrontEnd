@@ -18,8 +18,8 @@ function ProfileHeader() {
             />
           </div>
         </div>
-        <div id="profileInfo" className="row border position-relative">
-          <div className="col-2">
+        <div id="profileInfo" className="row justify-content-end border">
+          <div className="col-4 col-md-3 align-self-center p-0">
             <FollowButton />
           </div>
           <div className="row d-flex align-self-end justify-content-md-between p-0 m-0">

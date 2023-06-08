@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const userSlice = createSlice({
-  name: "user",
+const tweetSlice = createSlice({
+  name: "tweet",
   initialState: null,
   reducers: {
-    setToken(state, action) {
-      return { ...state, ...action.payload };
+    setTweets(state, action) {
+      return [ ...state, ...action.payload ];
     },
   },
 });

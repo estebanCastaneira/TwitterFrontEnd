@@ -34,8 +34,8 @@ function Login() {
 
     const token = response.data.token;
     if (token) {
-      dispatch(setToken(token));
-      navigate("/profile");
+      dispatch(setToken(response.data));
+      navigate("/");
     } else {
       navigate("/login");
     }
