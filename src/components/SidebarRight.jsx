@@ -30,9 +30,9 @@ function SidebarRight() {
               <div className="col-2">
                 <div className="d-flex justify-content-start align-items-center">
                   <img
-                    src="/img/icons/generic_avatar.PNG"
+                    src="/img/hack_academy.png"
                     className="img-fluid rounded-circle w-75 mb-2"
-                    alt="avatar"
+                    alt="hack_academy"
                   />
                 </div>
               </div>
@@ -61,9 +61,9 @@ function SidebarRight() {
               <div className="col-2">
                 <div className="d-flex justify-content-start align-items-center">
                   <img
-                    src="/img/icons/generic_avatar.PNG"
+                    src="/img/javascript.png"
                     className="img-fluid rounded-circle w-75 mb-2"
-                    alt="avatar"
+                    alt="javascript"
                   />
                 </div>
               </div>
@@ -92,9 +92,9 @@ function SidebarRight() {
               <div className="col-2">
                 <div className="d-flex justify-content-start align-items-center">
                   <img
-                    src="/img/icons/generic_avatar.PNG"
+                    src="/img/MongoDB.png"
                     className="img-fluid rounded-circle w-75 mb-2"
-                    alt="avatar"
+                    alt="MongoDB"
                   />
                 </div>
               </div>
@@ -123,9 +123,9 @@ function SidebarRight() {
               <div className="col-2">
                 <div className="d-flex justify-content-start align-items-center">
                   <img
-                    src="/img/icons/generic_avatar.PNG"
+                    src="/img/node.png"
                     className="img-fluid rounded-circle w-75 mb-2"
-                    alt="avatar"
+                    alt="NodeJs"
                   />
                 </div>
               </div>
@@ -154,7 +154,7 @@ function SidebarRight() {
               <div className="col-2">
                 <div className="d-flex justify-content-start align-items-center">
                   <img
-                    src="/img/icons/generic_avatar.PNG"
+                    src="/img/mdn.png"
                     className="img-fluid rounded-circle w-75 mb-2"
                     alt="avatar"
                   />

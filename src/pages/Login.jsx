@@ -72,7 +72,7 @@ function Login() {
         <section id="child_container" className="container">
           <article id="row" className="row mx-5 mx-lg-0">
             <div
-              id="welcome_messasge"
+              id="welcome_message"
               className="col d-none d-md-flex flex-column align-items-baseline justify-content-between rounded-start-3 p-5"
             >
               <img src="img/icons/twitter-logo-white.svg" style={{ height: "50px" }} />
