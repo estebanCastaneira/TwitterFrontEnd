@@ -20,7 +20,6 @@ function Home() {
         url: `http://localhost:3000/tweets`,
         headers: {
           Authorization: `Bearer ${token}`,
-          Username: user.username,
         },
       });
       setTweets(response.data);
