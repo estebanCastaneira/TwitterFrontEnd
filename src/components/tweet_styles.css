@@ -1,27 +1,30 @@
 .followBtn {
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 16px;
-    border: none;
-    border-radius: 40px;
-    background-color: #1d9bf0;
-    padding: 4px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  border-radius: 40px;
+  background-color: #1d9bf0;
+  padding: 4px;
 }
 .followBtn:hover {
-    background-color: #aab6d8;
-    color: black;
+  background-color: #aab6d8;
+  color: black;
 }
-.likes, .delete{
-    background-color: transparent;
-    border-width: 0;
-    font-family: inherit;
-    font-size: inherit;
-    font-style: inherit;
-    font-weight: inherit;
-    line-height: inherit;
-    padding: 0;
+.likes,
+.delete {
+  background-color: transparent;
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding: 0;
+  font-size: 0.8rem;
 }
-  
-.redColor{
-    color: #f73246;
+
+.redColor {
+  color: #f73246;
+  font-size: 0.8rem;
 }

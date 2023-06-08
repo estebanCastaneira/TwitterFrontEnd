@@ -12,7 +12,6 @@ function Profile() {
   const params = useParams();
   const [userInfo, setUserInfo] = useState(null);
   const token = useSelector((state) => state.user.token);
-  
 
   useEffect(() => {
     async function getUserInfo() {
@@ -24,7 +23,6 @@ function Profile() {
         },
       });
       setUserInfo(response.data);
-      
     }
     getUserInfo();
   }, []);
@@ -37,18 +35,18 @@ function Profile() {
             <Sidebar />
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
-           <ProfileHeader user={userInfo}/>
-            <div className="row position-relative">
-              {userInfo && userInfo.tweets.map(tweet => {
-                tweet.author = {
-                  avatar : userInfo.avatar,
-                  username : userInfo.username,
-                  firstname : userInfo.firstname,
-                  lastname : userInfo.lastname
-                }
-              return <Tweet key={tweet._id} tweet={tweet}/> 
-              })}
-               
+            <ProfileHeader user={userInfo} />
+            <div>
+              {userInfo &&
+                userInfo.tweets.map((tweet) => {
+                  tweet.author = {
+                    avatar: userInfo.avatar,
+                    username: userInfo.username,
+                    firstname: userInfo.firstname,
+                    lastname: userInfo.lastname,
+                  };
+                  return <Tweet key={tweet._id} tweet={tweet} />;
+                })}
             </div>
           </div>
           <div className="col-2 col-lg-4">
