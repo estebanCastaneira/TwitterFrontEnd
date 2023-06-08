@@ -3,8 +3,35 @@ import Sidebar from "../components/Sidebar";
 import ProfileHeader from "../components/ProfileHeader";
 import "./profile_styles.css";
 import Tweet from "../components/Tweet";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function Profile() {
+  const params = useParams();
+  const [userInfo, setUserInfo] = useState(null);
+  const token = useSelector((state) => state.token);
+
+  useEffect(() => {
+    async function getUserInfo() {
+      const response = await axios({
+        method: "GET",
+        url: "http://localhost:3000/users/profile/", //TODO
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        params: {
+          username: "@Pantoja",
+        },
+      });
+      setUserInfo(response.data);
+      console.log(response.data);
+    }
+    getUserInfo();
+  }, []);
+  // response.data && console.log(userInfo);
+
   return (
     <>
       <div className="container">
@@ -12,7 +39,7 @@ function Profile() {
           <div className="col-2 col-lg-2">
             <Sidebar />
           </div>
-          <div className="col-8 col-lg-6 col-xl-5 p-0">
+          <div className="col-8 col-lg-6 col-xl-5">
             <ProfileHeader />
             <div className="row position-relative">
               <Tweet />

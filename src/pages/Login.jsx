@@ -30,10 +30,12 @@ function Login() {
         password: passwordValue,
       },
     });
+    console.log(response.data.user);
+
     const token = response.data.token;
     if (token) {
       dispatch(setToken(token));
-      navigate("/");
+      navigate("/profile");
     } else {
       navigate.goBack();
     }
