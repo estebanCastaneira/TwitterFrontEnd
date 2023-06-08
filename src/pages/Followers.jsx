@@ -3,99 +3,39 @@ import "./Following.css";
 import SidebarRight from "../components/SidebarRight";
 import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";
+import FollowersNav from "../components/FollowersNav";
+import FollowersCard from "../components/FollowersCard";
 
 function Followers() {
   return (
-    <div className="container mw-75">
-      <div className="row">
-        <div className="col-1 col-md-2">
+    <div className="container">
+      <div className="row m-0 p-0">
+        <div className="col-2 col-lg-2">
           <Sidebar />
         </div>
-        <div className="col-11 col-md-6 col-lg-5">
-          <div className="container-sm mw-50">
+        <div className="col-9 col-lg-6 col-xl-5 p-0">
+          <div className="container-sm mw-50 pb-0 border">
             <div className="d-flex flex-row align-items-center">
-              <div className="mx-3">
-                <Link className="text-black" to="/<%= locals.user.username %>">
-                  <i className="bi bi-arrow-left fs-4 fw-600"></i>
+              <div className="col-1 align-item-center me-2">
+                <Link className="text-black" to="#">
+                  <i class="bi bi-arrow-left circle-hover"></i>
                 </Link>
               </div>
-              <div>
-                <h1 className="mb-0 mt-3 fs-2">Firstname Lastname</h1>
-                <small className="text-body-tertiary">@username</small>
+              <div className="col-10 col-md-8 ps-2 ps-md-0">
+                <h1 className="m-0 main-username mt-3">Firstname Lastname</h1>
+                <p className="main-usertext m-0 text-body-tertiary">@username</p>
               </div>
             </div>
-            <div className="d-flex justify-content-between ml-2 my-3">
-              <h3 className="fs-4">
-                <Link className="text-black text-decoration-none" to="./followers">
-                  Followers
-                </Link>
-              </h3>
-              <h3 className="fs-4">
-                <Link className="text-black text-decoration-none" to="./following">
-                  Following
-                </Link>
-              </h3>
-            </div>
-
+            <FollowersNav />
             {/* <!-- tarjeta FOLLOWERS --> */}
+
             {/* <% for (const userFollower of user.followers){ %> */}
-            <div className="card-footer bg-white">
-              <div className="row mb-3 g-0">
-                <div className="col-1">
-                  <div className="d-flex justify-content-end align-items-center">
-                    <img
-                      src="/img/icons/generic_avatar.PNG"
-                      className="img-fluid rounded-circle w-50 mb-2"
-                      alt="..."
-                    />
-                  </div>
-                </div>
-                <div className="col-5">
-                  <div className="card-body px-3">
-                    <h5 className="card-title mb-0 p-0 fs-6">Firstname Lastname</h5>
-                    <p className="card-text">
-                      <small className="text-body-tertiary">@username</small>
-                    </p>
-                  </div>
-                </div>
-                <div className="col-6">
-                  {/* <% if (userFollower.followers.includes(user._id)) { %> */}
-                  <div className="text-end">
-                    <form
-                      action="/unfollow/<%=userFollower.id %>?_method=PATCH"
-                      method="post"
-                      className="d-inline"
-                    >
-                      <button
-                        className="btn mt-1 btn-outline-dark rounded-pill px-3 fw-bold"
-                        type="submit"
-                      >
-                        Following
-                      </button>
-                    </form>
-                  </div>
+            <div className="row border-top">
+              <FollowersCard />
+              <FollowersCard />
 
-                  {/* // <% } else { %> */}
-                  <div className="text-end">
-                    <form
-                      action="/followFollower/<%=userFollower.id%>?_method=PATCH"
-                      method="post"
-                      className="d-inline"
-                    >
-                      <button
-                        className="btn mt-1 rounded-pill px-3 fw-bold followBtn"
-                        type="submit"
-                      >
-                        Follow
-                      </button>
-                    </form>
-                  </div>
-                  {/* // <% } %> */}
-                </div>
-              </div>
+              {/* //   <!-- tarjeta FOLLOWERS --> */}
             </div>
-
-            {/* //   <!-- tarjeta FOLLOWERS --> */}
           </div>
         </div>
         <div className="col-md-4">

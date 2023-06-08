@@ -5,7 +5,7 @@ function SidebarRight() {
     <div className="row">
       <aside className="d-none d-lg-block">
         <div className="bg-body-tertiary rounded p-3">
-          <h3 className="mb-3 fs-5">What's happening</h3>
+          <h3 className="mb-3 fs-5"> What´s happening</h3>
           <div className="lh-sm">
             <small className="m-0 text-secondary">Programin • Trending</small>
             <h4 className="m-0 fs-6">#MongoVsSequelize</h4>
@@ -36,11 +36,11 @@ function SidebarRight() {
                   />
                 </div>
               </div>
-              <div className="col-6 text-start">
+              <div className=" col-4 col-md-6 text-start">
                 <div className="card-body">
                   <h5 className="card-title mb-0 p-0 fs-6">Hack Academy</h5>
                   <p className="card-text">
-                    <small className="text-body-tertiary">@HackAcademyDev</small>
+                    <small className="text-body-tertiary">@Hack Academy</small>
                   </p>
                 </div>
               </div>
