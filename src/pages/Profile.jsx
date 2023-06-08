@@ -12,7 +12,7 @@ function Profile() {
   const params = useParams();
   const [userInfo, setUserInfo] = useState(null);
   const token = useSelector((state) => state.user.token);
-  console.log(token);
+  
 
   useEffect(() => {
     async function getUserInfo() {
@@ -37,8 +37,11 @@ function Profile() {
             <Sidebar />
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
-            <ProfileHeader />
-            <Tweet />
+           {userInfo && <ProfileHeader/>}
+            <div className="row position-relative">
+              {userInfo && userInfo.tweets.map(tweet => <Tweet key={tweet._id} tweet={tweet}/>)}
+               
+            </div>
           </div>
           <div className="col-2 col-lg-4">
             <SidebarRight />

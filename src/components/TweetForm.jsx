@@ -1,6 +1,8 @@
 import TweetButton from "./TweetButton";
-
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 function TweetForm() {
+  
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -14,15 +16,15 @@ function TweetForm() {
       >
         <div className="d-flex row g-0 gap-2 justify-content-between">
           <div className="col-1 align-items-start m-0">
-            <a className="text-decoration-none text-black" href="#">
+            <Link className="text-decoration-none text-black" to={`profile/${user.username}`}>
               <img
-                src="/img/foto_prueba.jpg"
+                src=""
                 className="rounded-circle"
                 width="50px"
                 height="50px"
                 alt="avatar"
               />
-            </a>
+            </Link>
           </div>
           <div className="form-group col-9 col-md-10">
             <input

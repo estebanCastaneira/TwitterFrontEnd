@@ -1,4 +1,4 @@
-function LikeButton() {
+function LikeButton({likes}) {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -6,9 +6,9 @@ function LikeButton() {
     <form method="POST" onSubmit={handleSubmit}>
       <button className="likes" type="submit">
         <i className="redColor bi bi-heart-fill"></i>
-        <p className="my-0 mx-2 d-inline redColor">Tweets likes length</p>
+        <p className="my-0 mx-2 d-inline redColor">{likes.length}</p>
         <i className="bi bi-heart"></i>
-        <p className="my-0 mx-2 d-inline">Tweets likes length</p>
+        <p className="my-0 mx-2 d-inline">{likes.length}</p>
       </button>
     </form>
   );

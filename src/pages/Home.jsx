@@ -6,12 +6,16 @@ import "./profile_styles.css";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setTweets } from "../redux/tweetSlice";
 
 function Home() {
-  const [tweets, setTweets] = useState(null);
+  const [tweets, setHomeTweets] = useState(null);
   const { user, token } = useSelector((state) => state.user);
-  console.log(user);
-  console.log(token);
+
+  const dispatch = useDispatch();
+ 
+  // console.log(token);
 
   useEffect(() => {
     async function getTweetsInfo() {
@@ -22,7 +26,9 @@ function Home() {
           Authorization: `Bearer ${token}`,
         },
       });
-      setTweets(response.data);
+      
+      dispatch(setTweets(response.data));
+      setHomeTweets(response.data);
       console.log(response.data);
     }
     getTweetsInfo();
@@ -37,7 +43,10 @@ function Home() {
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
             <TweetForm />
-            <Tweet />
+            {tweets && tweets.map(tweet => 
+              < Tweet key={tweet._id} tweet={tweet} />
+            )}
+            
           </div>
           <div className="col-2 col-lg-4">
             <SidebarRight />

@@ -3,10 +3,13 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import TweetButton from "./TweetButton";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
-
+  const {user} = useSelector(state => state.user)
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -21,7 +24,7 @@ function Sidebar() {
         className="d-flex flex-column justify-content-between me-4 mb-4 ms-0 w-20 h-100"
       >
         <div className="text-end text-lg-start mt-4">
-          <Link className="btn mb-4 p-0" to="#" role="button">
+          <Link className="btn mb-4 p-0" to="/" role="button">
             <img src="/public/img/icons/twitter-logo.svg" alt="" />
           </Link>
 
@@ -38,7 +41,7 @@ function Sidebar() {
 
           <Link
             className="btn mb-4 p-0 border-0 d-block text-end text-lg-start"
-            to="#"
+            onClick={()=> navigate(`profile/${user.username}`)}
             role="button"
           >
             <div className="me-1 d-inline-block" style={{ width: "23px" }}>
@@ -52,7 +55,7 @@ function Sidebar() {
             className="btn btn-primary mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
             onClick={handleShow}
           >
-            Tweet👌
+            Tweet
           </Button>
 
           <Link
