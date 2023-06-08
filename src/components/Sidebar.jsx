@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import TweetButton from "./TweetButton";
 import { useSelector } from "react-redux";
-import "./tweet_button_styles.css"
+import "./tweet_button_styles.css";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -27,13 +27,10 @@ function Sidebar() {
 
   return (
     <div>
-      <aside
-        id="leftSidebar"
-        className="d-flex flex-column justify-content-between me-4 mb-4 ms-0 w-20 h-100"
-      >
+      <aside id="leftSidebar" className="d-flex justify-content-center align-items-start w-100">
         <div className="text-end text-lg-start mt-4">
           <Link className="btn mb-4 p-0" to="/" role="button">
-            <img src="/public/img/icons/twitter-logo.svg" alt="" />
+            <img src="/public/img/icons/twitter-logo.svg" alt="tweet" />
           </Link>
 
           <Link
@@ -44,39 +41,43 @@ function Sidebar() {
             <div className="me-1 d-inline-block" style={{ width: "23px" }}>
               <img src="/img/icons/home.svg" alt="Home Icon" style={{ height: "21px" }} />
             </div>
-            <p className="d-none d-lg-inline">Home</p>
+            <p className="d-none d-lg-inline ms-2">Home</p>
           </Link>
 
           <Link
-            className="btn mb-4 p-0 border-0 d-block text-end text-lg-start"
+            className="btn mb-4 p-0 border-0 d-block text-lg-start"
             onClick={() => navigate(`profile/${user.username}`)}
             role="button"
           >
-            <div className="me-1 d-inline-block" style={{ width: "23px" }}>
+            <div className=" d-inline-block" style={{ width: "23px" }}>
               <img src="/img/icons/profile.svg" alt="Profile Icon" style={{ height: "21px" }} />
             </div>
-            <p className="d-none d-lg-inline">Profile</p>
+            <p className="d-none d-lg-inline ms-2">Profile</p>
           </Link>
 
           <Button
-            id="tweetButton"
-            className="btn mb-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
+            className="tweetButton btn mb-1 px-3 w-100 d-none d-lg-inline-block"
             onClick={handleShow}
+            role="button"
           >
             Tweet
           </Button>
-          <Button  id="sidebarIconTweet" className="rounded-circle p-2 d-lg-none" href="#" role="button">
-          
-            <img src="/icons/write.svg" style={{height: "21px"}} />
-    
+          <Button
+            id="sidebarIconTweet"
+            className="rounded-circle p-2 d-lg-none mb-3"
+            onClick={handleShow}
+            role="button"
+          >
+            <img src="/icons/write.svg" style={{ height: "21px" }} />
           </Button>
           <Link
             id="sidebarIconLogout"
             className="rounded-circle p-2 d-lg-none d-flex aling-self-end "
-            to="#"
+            to="/login"
             role="button"
+            onClick={handleLogout}
           >
-            <img src="/icons/logout.svg" style={{ height: "21px" }} />
+            <img src="/icons/logout.svg" style={{ height: "23px" }} />
           </Link>
           <Link
             id="logoutButton"

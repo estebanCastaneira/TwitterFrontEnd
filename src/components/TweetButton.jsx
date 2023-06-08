@@ -1,10 +1,13 @@
-import "./tweet_button_styles.css"
+import "./tweet_button_styles.css";
+
 function TweetButton() {
-    return (
-        <div className="form-group mt-2 align-self-end">
-            <button id="tweetButton" type="submit" className="btn btn-sm">Tweet</button>
-        </div>
-    )
-};
+  return (
+    <div className="form-group mt-2">
+      <button type="submit" className="tweetButton">
+        Tweet
+      </button>
+    </div>
+  );
+}
 
 export default TweetButton;
