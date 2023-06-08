@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { setToken } from "../redux/userSlice";
 import axios from "axios";
 import "./login_styles.css";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate, Link } from "react-router-dom";
 
@@ -18,6 +18,14 @@ function Login() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const state = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (state.token) {
+      navigate("/");
+    }
+  }, [navigate, state.token]);
 
   const isLoginPage = location.pathname === "/login";
 
@@ -36,7 +44,7 @@ function Login() {
     const token = response.data.token;
     if (token) {
       dispatch(setToken(response.data));
-      navigate("/");
+      navigate("/followers");
     } else {
       navigate("/login");
     }

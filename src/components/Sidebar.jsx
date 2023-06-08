@@ -1,21 +1,28 @@
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
+import { clearToken } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import TweetButton from "./TweetButton";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const {user} = useSelector(state => state.user)
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  function handleLogout() {
+    dispatch(clearToken());
+  }
 
   return (
     <div>
@@ -41,7 +48,7 @@ function Sidebar() {
 
           <Link
             className="btn mb-4 p-0 border-0 d-block text-end text-lg-start"
-            onClick={()=> navigate(`profile/${user.username}`)}
+            onClick={() => navigate(`profile/${user.username}`)}
             role="button"
           >
             <div className="me-1 d-inline-block" style={{ width: "23px" }}>
@@ -68,8 +75,9 @@ function Sidebar() {
           </Link>
           <Link
             className="btn btn-danger mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
-            to="#"
+            to="/login"
             role="button"
+            onClick={handleLogout}
           >
             Logout
           </Link>
