@@ -15,13 +15,14 @@ function Login() {
   const [emailValue, setEmail] = useState("");
   const [avatar, setAvatar] = useState("");
 
-  const dispatch = useDispatch(setToken);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const isLoginPage = location.pathname === "/login";
 
   async function handleLogin(event) {
     event.preventDefault();
+
     const response = await axios({
       method: "POST",
       url: "http://localhost:3000/token",
@@ -30,19 +31,38 @@ function Login() {
         password: passwordValue,
       },
     });
-    console.log(response.data.user);
 
     const token = response.data.token;
     if (token) {
       dispatch(setToken(token));
       navigate("/profile");
     } else {
-      navigate.goBack();
+      navigate("/login");
     }
   }
 
-  function handleSignup(event) {
+  async function handleSignup(event) {
     event.preventDefault();
+
+    const userData = {
+      firstname: firstnameValue,
+      lastname: lastnameValue,
+      username: usernameValue,
+      email: emailValue,
+      password: passwordValue,
+      avatar: avatar,
+    };
+
+    const response = await axios({
+      method: "POST",
+      url: "http://localhost:3000/users",
+      data: userData,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    await handleLogin(event);
   }
 
   return (
@@ -69,7 +89,7 @@ function Login() {
                   : "Create an account and start using Twitter"}
               </p>
               {isLoginPage ? (
-                <form action="/login" method="POST">
+                <form action="/login" method="POST" onSubmit={handleLogin}>
                   {/* <!-- Email input --> */}
                   <div className="form-outline mb-4">
                     <input
@@ -101,7 +121,6 @@ function Login() {
                       type="submit"
                       className="btn btn-lg"
                       style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
-                      onClick={handleLogin}
                     >
                       Login
                     </button>
@@ -111,7 +130,7 @@ function Login() {
                   </div>
                 </form>
               ) : (
-                <form encType="multipart/form-data" method="post">
+                <form encType="multipart/form-data" method="POST" onSubmit={handleSignup}>
                   {/* <!-- First Name input --> */}
                   <div className="form-outline mb-4">
                     <input
@@ -171,7 +190,7 @@ function Login() {
                       type="file"
                       id="avatar"
                       name="avatar"
-                      onChange={(event) => setAvatar(event.target.value)}
+                      onChange={(event) => setAvatar(event.target.files[0])}
                     />
                   </div>
 
@@ -194,7 +213,6 @@ function Login() {
                       type="submit"
                       className="btn btn-lg"
                       style={{ paddingLeft: "2.5rem", paddingRight: " 2.5rem" }}
-                      onSubmit={handleSignup}
                     >
                       Sign up
                     </button>
