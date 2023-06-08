@@ -18,12 +18,9 @@ function Profile() {
     async function getUserInfo() {
       const response = await axios({
         method: "GET",
-        url: "http://localhost:3000/users/profile",
+        url: `http://localhost:3000/users/${params.username}`,
         headers: {
           Authorization: `Bearer ${token}`,
-        },
-        params: {
-          username: "@Pantoja",
         },
       });
       setUserInfo(response.data);
