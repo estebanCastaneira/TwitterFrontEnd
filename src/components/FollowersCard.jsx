@@ -2,8 +2,8 @@ import React from "react";
 
 function FollowersCard() {
   return (
-    <div className="card-footer border-top border-bottom pt-3 pe-2">
-      <div className="row mb-3 g-0 justify-content-between">
+    <div className="card-footer pe-2 align-items-center py-3">
+      <div className="row g-0 justify-content-between align-items-center">
         <div className="col-3 col-md-2 align-items-start m-0">
           <div className="d-flex justify-content-center align-items-center">
             <img
@@ -25,7 +25,7 @@ function FollowersCard() {
         </div>
         <div className="col-4 col-md-3">
           {/* <% if (userFollower.followers.includes(user._id)) { %> */}
-          <div className="text-center">
+          {/*<div className="text-center">
             <form
               action="/unfollow/<%=userFollower.id %>?_method=PATCH"
               method="post"
@@ -38,7 +38,7 @@ function FollowersCard() {
                 Following
               </button>
             </form>
-          </div>
+          </div>*/}
 
           {/* // <% } else { %> */}
           <div className="text-end">

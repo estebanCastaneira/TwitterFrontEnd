@@ -14,7 +14,7 @@ function Followers() {
           <Sidebar />
         </div>
         <div className="col-8 col-lg-6 col-xl-5 p-0">
-          <div className="container-sm mw-50 pb-0 border border-top-0 border-left-0 border-right-0">
+          <div className="container-sm mw-50 pb-0 border">
             <div className="d-flex flex-row align-items-center justify-content-start ">
               <div className="me-3">
                 <Link className="text-black" to="#">
@@ -30,7 +30,7 @@ function Followers() {
             {/* <!-- tarjeta FOLLOWERS --> */}
 
             {/* <% for (const userFollower of user.followers){ %> */}
-            <div className="row">
+            <div className="row border-top">
               <FollowersCard />
               <FollowersCard />
               {/* //   <!-- tarjeta FOLLOWERS --> */}
