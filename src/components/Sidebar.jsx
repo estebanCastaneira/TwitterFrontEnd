@@ -6,14 +6,12 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import TweetButton from "./TweetButton";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const { user } = useSelector((state) => state.user);
-  //const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +21,7 @@ function Sidebar() {
   const handleShow = () => setShow(true);
 
   function handleLogout() {
-    navigate("/login");
+    dispatch(clearToken());
   }
 
   return (
@@ -77,7 +75,7 @@ function Sidebar() {
           </Link>
           <Link
             className="btn btn-danger mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
-            to="#"
+            to="/login"
             role="button"
             onClick={handleLogout}
           >
