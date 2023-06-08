@@ -54,6 +54,22 @@ function Sidebar() {
           >
             Tweet👌
           </Button>
+
+          <Link
+            id="sidebarIconLogout"
+            className="rounded-circle p-2 d-lg-none d-flex aling-self-end "
+            to="#"
+            role="button"
+          >
+            <img src="../img/icons/logout.svg" style={{ height: "21px" }} />
+          </Link>
+          <Link
+            className="btn btn-danger mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
+            to="#"
+            role="button"
+          >
+            Logout
+          </Link>
         </div>
 
         {/* <!-- MODAL TWEET --> */}
@@ -83,7 +99,7 @@ function Sidebar() {
                     name="content"
                     className="form-control border-0 p-2"
                     rows="5"
-                    placeholder="What are you thinking brother?"
+                    placeholder="What are you thinking?"
                     type="text"
                   ></input>
                 </div>
@@ -94,26 +110,7 @@ function Sidebar() {
             </form>
           </Modal.Body>
         </Modal>
-
-        <div className="text-end text-lg-start">
-          <Link
-            className="btn btn-danger mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
-            to="#"
-            role="button"
-          >
-            Logout
-          </Link>
-          <Link
-            id="sidebarIconLogout"
-            className="rounded-circle p-2 d-lg-none d-flex aling-self-end "
-            to="#"
-            role="button"
-          >
-            <img src="../img/icons/logout.svg" style={{ height: "21px" }} />
-          </Link>
-        </div>
       </aside>
-      ;
     </div>
   );
 }
