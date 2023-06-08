@@ -5,7 +5,7 @@ function SidebarRight() {
     <div className="row">
       <aside className="d-none d-lg-block">
         <div className="bg-body-tertiary rounded p-3">
-          <h3 className="mb-3 fs-5">What's happening</h3>
+          <h3 className="mb-3 fs-5"> What´s happening</h3>
           <div className="lh-sm">
             <small className="m-0 text-secondary">Programin • Trending</small>
             <h4 className="m-0 fs-6">#MongoVsSequelize</h4>

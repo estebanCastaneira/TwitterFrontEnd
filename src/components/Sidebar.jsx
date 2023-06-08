@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import TweetButton from "./TweetButton";
 
 function Sidebar() {
+  const [show, setShow] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div>
       <aside
@@ -34,25 +47,54 @@ function Sidebar() {
             <p className="d-none d-lg-inline">Profile</p>
           </Link>
 
-          <div className="text-end text-lg-start">
-            <Link
-              id="sidebarTweet"
-              className="btn m-0 rounded-pill pl-3 w-100 fw-semibold text-center d-none d-lg-inline-block"
-              to="#"
-              role="button"
-            >
-              Tweet
-            </Link>
-            <Link
-              id="sidebarIconTweet"
-              className="rounded-circle p-2 d-lg-none"
-              to="#"
-              role="button"
-            >
-              <img src="../img/icons/write.svg" style={{ height: "21px" }} />
-            </Link>
-          </div>
+          <Button
+            variant="primary"
+            className="btn btn-primary mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
+            onClick={handleShow}
+          >
+            Tweet👌
+          </Button>
         </div>
+
+        {/* <!-- MODAL TWEET --> */}
+
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Body>
+            <form
+              className="container border d-flex flex-column justify-content-end pt-2"
+              method="post"
+              onSubmit={handleSubmit}
+              style={{ height: "150px" }}
+            >
+              <div className="d-flex row g-0 gap-2 justify-content-between">
+                <div className="col-1 align-items-start m-0">
+                  <a className="text-decoration-none text-black" href="#">
+                    <img
+                      src="/img/foto_prueba.jpg"
+                      className="rounded-circle"
+                      width="50px"
+                      height="50px"
+                      alt="avatar"
+                    />
+                  </a>
+                </div>
+                <div className="form-group col-9 col-md-10">
+                  <input
+                    name="content"
+                    className="form-control border-0 p-2"
+                    rows="5"
+                    placeholder="What are you thinking brother?"
+                    type="text"
+                  ></input>
+                </div>
+              </div>
+              <div className="mt-auto d-flex justify-content-end mb-2">
+                <TweetButton />
+              </div>
+            </form>
+          </Modal.Body>
+        </Modal>
+
         <div className="text-end text-lg-start">
           <Link
             className="btn btn-danger mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
@@ -63,7 +105,7 @@ function Sidebar() {
           </Link>
           <Link
             id="sidebarIconLogout"
-            className="rounded-circle p-2 d-lg-none"
+            className="rounded-circle p-2 d-lg-none d-flex aling-self-end "
             to="#"
             role="button"
           >
