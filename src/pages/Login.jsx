@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
+  const [identifierValue, setIdentifier] = useState("");
   const [usernameValue, setUsername] = useState("");
   const [passwordValue, setPassword] = useState("");
   const [firstnameValue, setFirstname] = useState("");
@@ -20,14 +21,14 @@ function Login() {
 
   const isLoginPage = location.pathname === "/login";
 
-  async function handleLogin(event) {
+  async function handleLogin(event, identifier = identifierValue) {
     event.preventDefault();
-
+    console.log([identifier, passwordValue]);
     const response = await axios({
       method: "POST",
       url: "http://localhost:3000/token",
       data: {
-        email: emailValue,
+        identifier: identifier,
         password: passwordValue,
       },
     });
@@ -62,7 +63,7 @@ function Login() {
       },
     });
 
-    await handleLogin(event);
+    await handleLogin(event, emailValue);
   }
 
   return (
@@ -90,16 +91,16 @@ function Login() {
               </p>
               {isLoginPage ? (
                 <form action="/login" method="POST" onSubmit={handleLogin}>
-                  {/* <!-- Email input --> */}
+                  {/* <!-- Identifier input --> */}
                   <div className="form-outline mb-4">
                     <input
-                      type="email"
-                      id="email"
+                      type="text"
+                      id="identifier"
                       className="form-control form-control-lg"
                       placeholder="Email or username"
-                      name="email"
-                      value={emailValue}
-                      onChange={(event) => setEmail(event.target.value)}
+                      name="identifier"
+                      value={identifierValue}
+                      onChange={(event) => setIdentifier(event.target.value)}
                     />
                   </div>
 
