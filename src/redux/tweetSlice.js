@@ -10,6 +10,6 @@ const tweetSlice = createSlice({
   },
 });
 
-const { actions, reducer } = userSlice;
+const { actions, reducer } = tweetSlice;
 export const { setToken } = actions;
 export default reducer;
