@@ -16,7 +16,7 @@ function Followers() {
             <div className="d-flex flex-row align-items-center">
               <div className="mx-3">
                 <Link className="text-black" to="/<%= locals.user.username %>">
-                  <i class="bi bi-arrow-left fs-4 fw-600"></i>
+                  <i className="bi bi-arrow-left fs-4 fw-600"></i>
                 </Link>
               </div>
               <div>
