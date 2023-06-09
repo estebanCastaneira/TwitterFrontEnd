@@ -30,7 +30,7 @@ function Followers() {
         },
       });
       setUserInfo(response.data);
-      console.log(response.data);
+     
     }
     getUserInfo();
   }, []);
