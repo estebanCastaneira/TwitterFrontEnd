@@ -8,7 +8,7 @@ import axios from "axios";
 
 function TweetForm() {
   const [tweetContent, setTweetContent] = useState("");
-  const user = useSelector(state => state.user._doc)
+  const user = useSelector((state) => state.user._doc);
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,7 +53,7 @@ function TweetForm() {
                 onChange={(e) => setTweetContent(e.target.value)}
               ></input>
             </div>
-            <div className="form-group align-self-end mt-auto mb-2 ">
+            <div className="form-group align-self-end mt-auto mb-2 button-column">
               <TweetButton />
             </div>
           </form>
