@@ -54,7 +54,7 @@ function TweetForm() {
                 onChange={(e) => setTweetContent(e.target.value)}
               ></input>
             </div>
-            <div className="form-group align-self-end mt-auto mb-2 ">
+            <div className="align-self-end mt-auto mb-2 button-column">
               <TweetButton />
             </div>
           </form>

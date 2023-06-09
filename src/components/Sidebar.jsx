@@ -3,8 +3,7 @@ import { useState } from "react";
 import { clearToken } from "../redux/userSlice";
 import { resetTweets } from "../redux/tweetSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import { Modal, Form, Button, Col, Row } from "react-bootstrap";
 import TweetButton from "./TweetButton";
 import "./tweet_button_styles.css";
 import axios from "axios";
@@ -19,21 +18,21 @@ function Sidebar() {
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(tweetContent){
+    if (tweetContent) {
       const response = await axios({
         method: "POST",
         url: "http://localhost:3000/tweets",
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        data:{
+        data: {
           content: tweetContent,
-        }
-      }) 
+        },
+      });
       dispatch(createTweet(response.data));
       handleClose();
-      setTweetContent("")
-    }  
+      setTweetContent("");
+    }
   };
   const isProfilePage = location.pathname === `/profile/${user.username}`;
 
@@ -48,13 +47,13 @@ function Sidebar() {
   return (
     <div className="sticky-top">
       <aside id="leftSidebar" className=" d-flex justify-content-center align-items-start w-100">
-        <div className="text-end text-lg-start mt-4">
-          <Link className="btn mb-4 p-0" to="/" role="button">
+        <div className="text-center text-lg-start mt-4">
+          <Link className="btn mb-4 p-0 ps-1 ps-lg-0 sidebar_button" to="/" role="button">
             <img src="/public/img/icons/twitter-logo.svg" alt="tweet" />
           </Link>
 
           <Link
-            className="btn mb-4 p-0 border-0 d-block text-end text-lg-start"
+            className="btn mb-4 p-0 ps-1 ps-lg-0 border-0 d-block text-center text-lg-start sidebar_button"
             to="/"
             role="button"
           >
@@ -65,7 +64,7 @@ function Sidebar() {
           </Link>
           {user && (
             <Link
-              className="btn mb-4 p-0 border-0 d-block text-lg-start"
+              className="btn mb-4 p-0 border-0 d-block text-center text-lg-start sidebar_button"
               to={isProfilePage ? "#" : `profile/${user.username}`}
               role="button"
             >
@@ -76,7 +75,7 @@ function Sidebar() {
             </Link>
           )}
           <Button
-            className="tweetButton btn mb-1 px-3 w-100 d-none d-lg-inline-block"
+            className="tweetButton mb-1 px-3 d-none d-lg-inline-block "
             onClick={handleShow}
             role="button"
           >
@@ -84,7 +83,7 @@ function Sidebar() {
           </Button>
           <Button
             id="sidebarIconTweet"
-            className="rounded-circle p-2 d-lg-none mb-3"
+            className="rounded-circle p-2 d-lg-none mb-3 sidebar_button "
             onClick={handleShow}
             role="button"
           >
@@ -92,7 +91,7 @@ function Sidebar() {
           </Button>
           <Link
             id="sidebarIconLogout"
-            className="rounded-circle p-2 d-lg-none d-flex aling-self-end "
+            className="rounded-circle p-2 d-lg-none d-flex aling-self-end sidebar_button"
             to="/login"
             role="button"
             onClick={handleLogout}
@@ -112,43 +111,41 @@ function Sidebar() {
 
         {/* <!-- MODAL TWEET --> */}
 
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Body>
-            <form
-              className="container border d-flex flex-column justify-content-end pt-2"
-              method="post"
-              onSubmit={handleSubmit}
-              style={{ height: "150px" }}
-            >
-              <div className="d-flex row g-0 gap-2 justify-content-between">
-                <div className="col-1 align-items-start m-0">
-                  <a className="text-decoration-none text-black" href="#">
+        <Modal show={show} onHide={handleClose} className="mt-5">
+          <Modal.Header className="border-0 p-3 pb-2" closeButton></Modal.Header>
+          <Modal.Body className="p-0">
+            <Form>
+              <Form.Group>
+                <Row className="d-flex justify-content-between ms-0 p-0">
+                  <Col xs={1}>
                     <img
-                      src={user && user.avatar}
-                      className="rounded-circle"
-                      width="50px"
-                      height="50px"
+                      src={user.avatar}
                       alt="avatar"
+                      className="rounded-circle"
+                      style={{ width: "50px", height: "50px" }}
                     />
-                  </a>
-                </div>
-                <div className="form-group col-9 col-md-10">
-                  <input
-                    name="content"
-                    className="form-control border-0 p-2"
-                    rows="5"
-                    placeholder="What are you thinking?"
-                    type="text"
-                    value={tweetContent}
-                    onChange={(e)=> setTweetContent(e.target.value)}
-                  ></input>
-                </div>
-              </div>
-              <div className="mt-auto d-flex justify-content-end mb-2">
-                <TweetButton />
-              </div>
-            </form>
+                  </Col>
+                  <Col xs={10}>
+                    <Form.Control
+                      className="border-0"
+                      as="textarea"
+                      rows={3}
+                      name="content"
+                      placeholder="What are you thinking?"
+                      type="text"
+                      value={tweetContent}
+                      onChange={(e) => setTweetContent(e.target.value)}
+                    />
+                  </Col>
+                </Row>
+              </Form.Group>
+            </Form>
           </Modal.Body>
+          <Modal.Footer className="p-2 border-0">
+            <div className="button-column">
+              <TweetButton />
+            </div>
+          </Modal.Footer>
         </Modal>
       </aside>
     </div>
