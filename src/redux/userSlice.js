@@ -5,10 +5,10 @@ const userSlice = createSlice({
   initialState: null,
   reducers: {
     setToken(state, action) {
-      return action.payload ;
+      return action.payload;
     },
     clearToken: (state) => {
-      return { ...state, token: null };
+      return null;
     },
     follow(state, action) {
       //  state.user.user.following.push(action.payload)
@@ -21,11 +21,10 @@ const userSlice = createSlice({
       console.log(action.payload);
     },
     createTweet(state, action) {
-      state.tweets.push(action.payload._id)
+      state.tweets.push(action.payload._id);
     },
     deleteTweet(state, action) {
-      return state.tweets.filter(tweet => tweet !== action.payload._id);
-
+      return state.tweets.filter((tweet) => tweet !== action.payload._id);
     },
   },
 });
