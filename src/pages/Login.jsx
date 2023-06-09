@@ -19,19 +19,19 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const state = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    if (state.token) {
+    if (user) {
       navigate("/");
     }
-  }, [navigate, state.token]);
+  }, [user]);
 
   const isLoginPage = location.pathname === "/login";
 
   async function handleLogin(event, identifier = identifierValue) {
     event.preventDefault();
-  
+
     const response = await axios({
       method: "POST",
       url: "http://localhost:3000/token",

@@ -1,31 +1,37 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setLikes } from "../redux/tweetSlice";
-function LikeButton({likes, tweet}) {
-  const dispatch = useDispatch();
+import axios from "axios";
 
-  const handleSubmit = async (e) => {
+function LikeButton({ likes, tweet }) {
+  const dispatch = useDispatch();
+  console.log(likes);
+  const user = useSelector((state) => state.user);
+
+  console.log(user);
+
+  const handleLike = async (e) => {
     e.preventDefault();
+
     const response = await axios({
       method: "PATCH",
-      url: `http://localhost:3000/tweets/${tweet.id}`,
+      url: `http://localhost:3000/tweets/${tweet._id}/like`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
-    
-    
-    dispatch(setLikes())
-    
+
+    dispatch(setLikes());
   };
-  const {user} = useSelector(state => state.user);
   return (
-    <form method="POST" onSubmit={handleSubmit}>
+    <form method="PATCH" onSubmit={handleLike}>
       <button className="likes" type="submit">
-     
-        <i className={likes.includes(user.id)
-          ? "redColor bi bi-heart-fill" 
-          : "bi bi-heart"}></i>
-        <p className={likes.includes(user.id)
-          ? "redColor my-0 mx-2 d-inline" 
-          : "my-0 mx-2 d-inline"}>{likes.length}</p> 
+        <i className={likes.includes(user.id) ? "redColor bi bi-heart-fill" : "bi bi-heart"}></i>
+        <p
+          className={likes.includes(user.id) ? "redColor my-0 mx-2 d-inline" : "my-0 mx-2 d-inline"}
+        >
+          {likes.length}
+        </p>
       </button>
     </form>
   );

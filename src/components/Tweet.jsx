@@ -4,14 +4,16 @@ import "./tweet_styles.css";
 import { Link } from "react-router-dom";
 import { format, formatDistanceToNow, isSameDay } from "date-fns";
 import { enUS } from "date-fns/locale";
+import { useSelector } from "react-redux";
 
 function Tweet({ tweet }) {
-  console.log(tweet);
+  const user = useSelector(state => state.user._doc )
+  const isProfilePage = location.pathname === `/profile/${tweet.author.username}`;
   return (
     <div className="card-footer tweet">
       <div className="d-flex row g-0 justify-content-between border border-top-0 p-2">
         <div className="col-2 m-0">
-          <Link className="text-decoration-none text-black" to={`profile/${tweet.author.username}`}>
+          <Link className="text-decoration-none text-black" to={isProfilePage ? "#" : `profile/${tweet.author.username}`}>
             <img
               src={tweet.author.avatar}
               className="rounded-circle"
@@ -26,7 +28,7 @@ function Tweet({ tweet }) {
             <div className="card-body d-flex align-items-end mb-1">
               <Link
                 className="text-decoration-none text-black"
-                to={`profile/${tweet.author.username}`}
+                to={isProfilePage ? "#" : `profile/${tweet.author.username}`}
               >
                 <p className="card-title p-0 fw-bold username">
                   {tweet.author.firstname} {tweet.author.lastname}
@@ -55,7 +57,10 @@ function Tweet({ tweet }) {
             <div className="d-flex">
               <LikeButton tweet={tweet} likes={tweet.likes} />
             </div>
-            <DeleteTweet />
+          
+               <DeleteTweet />
+            
+           
           </div>
         </div>
       </div>

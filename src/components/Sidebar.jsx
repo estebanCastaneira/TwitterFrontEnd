@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { clearToken } from "../redux/userSlice";
 import { resetTweets } from "../redux/tweetSlice";
@@ -7,16 +7,34 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import TweetButton from "./TweetButton";
 import "./tweet_button_styles.css";
+import axios from "axios";
+import { createTweet } from "../redux/userSlice";
 
 function Sidebar() {
-  const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const { user } = useSelector((state) => state.user);
+  const [tweetContent, setTweetContent] = useState("");
+  const user = useSelector((state) => state.user._doc);
+ 
   const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if(tweetContent){
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:3000/tweets",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+        data:{
+          content: tweetContent,
+        }
+      }) 
+      dispatch(createTweet(response.data));
+      handleClose();
+      setTweetContent("")
+    }  
   };
+  const isProfilePage = location.pathname === `/profile/${user.username}`;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -44,18 +62,18 @@ function Sidebar() {
             </div>
             <p className="d-none d-lg-inline ms-2">Home</p>
           </Link>
-
-          <Link
-            className="btn mb-4 p-0 border-0 d-block text-lg-start"
-            onClick={() => navigate(`profile/${user.username}`)}
-            role="button"
-          >
-            <div className=" d-inline-block" style={{ width: "23px" }}>
-              <img src="/img/icons/profile.svg" alt="Profile Icon" style={{ height: "21px" }} />
-            </div>
-            <p className="d-none d-lg-inline ms-2">Profile</p>
-          </Link>
-
+          {user && (
+            <Link
+              className="btn mb-4 p-0 border-0 d-block text-lg-start"
+              to={isProfilePage ? "#" : `profile/${user.username}`}
+              role="button"
+            >
+              <div className=" d-inline-block" style={{ width: "23px" }}>
+                <img src="/img/icons/profile.svg" alt="Profile Icon" style={{ height: "21px" }} />
+              </div>
+              <p className="d-none d-lg-inline ms-2">Profile</p>
+            </Link>
+          )}
           <Button
             className="tweetButton btn mb-1 px-3 w-100 d-none d-lg-inline-block"
             onClick={handleShow}
@@ -105,7 +123,7 @@ function Sidebar() {
                 <div className="col-1 align-items-start m-0">
                   <a className="text-decoration-none text-black" href="#">
                     <img
-                      src={user.avatar}
+                      src={user && user.avatar}
                       className="rounded-circle"
                       width="50px"
                       height="50px"
@@ -120,6 +138,8 @@ function Sidebar() {
                     rows="5"
                     placeholder="What are you thinking?"
                     type="text"
+                    value={tweetContent}
+                    onChange={(e)=> setTweetContent(e.target.value)}
                   ></input>
                 </div>
               </div>
