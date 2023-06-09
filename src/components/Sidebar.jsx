@@ -1,4 +1,4 @@
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { clearToken } from "../redux/userSlice";
 import { resetTweets } from "../redux/tweetSlice";
@@ -9,7 +9,6 @@ import TweetButton from "./TweetButton";
 import "./tweet_button_styles.css";
 
 function Sidebar() {
-  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -17,6 +16,7 @@ function Sidebar() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+  const isProfilePage = location.pathname === `/profile/${user.username}`;
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -47,7 +47,7 @@ function Sidebar() {
           {user && (
             <Link
               className="btn mb-4 p-0 border-0 d-block text-lg-start"
-              onClick={() => navigate(`profile/${user.username}`)}
+              to={isProfilePage ? "#" : `profile/${user.username}`}
               role="button"
             >
               <div className=" d-inline-block" style={{ width: "23px" }}>

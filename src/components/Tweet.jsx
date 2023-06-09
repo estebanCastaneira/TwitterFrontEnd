@@ -4,9 +4,12 @@ import "./tweet_styles.css";
 import { Link } from "react-router-dom";
 import { format, formatDistanceToNow, isSameDay } from "date-fns";
 import { enUS } from "date-fns/locale";
+import { useSelector } from "react-redux";
 
 function Tweet({ tweet }) {
+  const user = useSelector(state => state.user )
   console.log(tweet);
+  console.log(user);
   return (
     <div className="card-footer tweet">
       <div className="d-flex row g-0 justify-content-between border border-top-0 p-2">
@@ -55,7 +58,10 @@ function Tweet({ tweet }) {
             <div className="d-flex">
               <LikeButton tweet={tweet} likes={tweet.likes} />
             </div>
-            <DeleteTweet />
+          
+               <DeleteTweet />
+            
+           
           </div>
         </div>
       </div>
