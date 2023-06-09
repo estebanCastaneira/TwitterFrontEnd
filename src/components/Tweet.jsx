@@ -7,13 +7,16 @@ import { enUS } from "date-fns/locale";
 import { useSelector } from "react-redux";
 
 function Tweet({ tweet }) {
-  const user = useSelector(state => state.user._doc )
+  const user = useSelector((state) => state.user._doc);
   const isProfilePage = location.pathname === `/profile/${tweet.author.username}`;
   return (
     <div className="card-footer tweet">
       <div className="d-flex row g-0 justify-content-between border border-top-0 p-2">
         <div className="col-2 m-0">
-          <Link className="text-decoration-none text-black" to={isProfilePage ? "#" : `profile/${tweet.author.username}`}>
+          <Link
+            className="text-decoration-none text-black"
+            to={isProfilePage ? "#" : `profile/${tweet.author.username}`}
+          >
             <img
               src={tweet.author.avatar}
               className="rounded-circle"
@@ -55,12 +58,10 @@ function Tweet({ tweet }) {
           {/* <!-- tweet text --> */}
           <div className="col-12 d-flex justify-content-between align-items-center">
             <div className="d-flex">
-              <LikeButton tweet={tweet} likes={tweet.likes} />
+              <LikeButton tweet={tweet} />
             </div>
-          
-               <DeleteTweet />
-            
-           
+
+            <DeleteTweet />
           </div>
         </div>
       </div>
