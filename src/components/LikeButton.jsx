@@ -23,7 +23,6 @@ function LikeButton({ likes, tweet }) {
 
     dispatch(setLikes());
   };
-  const { user } = useSelector((state) => state.user);
   return (
     <form method="PATCH" onSubmit={handleLike}>
       <button className="likes" type="submit">
