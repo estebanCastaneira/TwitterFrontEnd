@@ -14,25 +14,25 @@ function Sidebar() {
   const [show, setShow] = useState(false);
   const [tweetContent, setTweetContent] = useState("");
   const user = useSelector((state) => state.user._doc);
- 
+
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(tweetContent){
+    if (tweetContent) {
       const response = await axios({
         method: "POST",
         url: "http://localhost:3000/tweets",
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
-        data:{
+        data: {
           content: tweetContent,
-        }
-      }) 
+        },
+      });
       dispatch(createTweet(response.data));
       handleClose();
-      setTweetContent("")
-    }  
+      setTweetContent("");
+    }
   };
   const isProfilePage = location.pathname === `/profile/${user.username}`;
 
@@ -47,13 +47,13 @@ function Sidebar() {
   return (
     <div className="sticky-top">
       <aside id="leftSidebar" className=" d-flex justify-content-center align-items-start w-100">
-        <div className="text-end text-lg-start mt-4">
-          <Link className="btn mb-4 p-0" to="/" role="button">
+        <div className="text-center text-lg-start mt-4">
+          <Link className="btn mb-4 p-0 ps-1 ps-lg-0" to="/" role="button">
             <img src="/public/img/icons/twitter-logo.svg" alt="tweet" />
           </Link>
 
           <Link
-            className="btn mb-4 p-0 border-0 d-block text-end text-lg-start"
+            className="btn mb-4 p-0 ps-1 ps-lg-0 border-0 d-block text-center text-lg-start"
             to="/"
             role="button"
           >
@@ -64,7 +64,7 @@ function Sidebar() {
           </Link>
           {user && (
             <Link
-              className="btn mb-4 p-0 border-0 d-block text-lg-start"
+              className="btn mb-4 p-0 border-0 d-block text-center text-lg-start"
               to={isProfilePage ? "#" : `profile/${user.username}`}
               role="button"
             >
@@ -75,7 +75,7 @@ function Sidebar() {
             </Link>
           )}
           <Button
-            className="tweetButton btn mb-1 px-3 w-100 d-none d-lg-inline-block"
+            className="tweetButton mb-1 px-3 d-none d-lg-inline-block"
             onClick={handleShow}
             role="button"
           >
@@ -83,7 +83,7 @@ function Sidebar() {
           </Button>
           <Button
             id="sidebarIconTweet"
-            className="rounded-circle p-2 d-lg-none mb-3"
+            className="rounded-circle p-2 d-lg-none mb-3 "
             onClick={handleShow}
             role="button"
           >
@@ -100,7 +100,7 @@ function Sidebar() {
           </Link>
           <Link
             id="logoutButton"
-            className="btn mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
+            className="btn mt-1 rounded-pill w-100 fw-semibold d-none d-lg-inline-block"
             to="/login"
             role="button"
             onClick={handleLogout}
@@ -139,7 +139,7 @@ function Sidebar() {
                     placeholder="What are you thinking?"
                     type="text"
                     value={tweetContent}
-                    onChange={(e)=> setTweetContent(e.target.value)}
+                    onChange={(e) => setTweetContent(e.target.value)}
                   ></input>
                 </div>
               </div>
