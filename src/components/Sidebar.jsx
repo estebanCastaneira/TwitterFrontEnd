@@ -13,7 +13,7 @@ import { createTweet } from "../redux/userSlice";
 function Sidebar() {
   const [show, setShow] = useState(false);
   const [tweetContent, setTweetContent] = useState("");
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user._doc);
  
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {

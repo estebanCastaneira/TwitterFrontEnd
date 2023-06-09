@@ -6,8 +6,9 @@ import { createTweet } from "../redux/userSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
-function TweetForm({ user }) {
+function TweetForm() {
   const [tweetContent, setTweetContent] = useState("");
+  const user = useSelector(state => state.user._doc)
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +31,6 @@ function TweetForm({ user }) {
   return (
     <div>
       <h2 className="fs-4 my-3">Home</h2>
-
       <div className="border d-flex flex-row justify-content-between p-2 pb-0">
         <Link className="text-decoration-none text-black col-2" to="/">
           <img
