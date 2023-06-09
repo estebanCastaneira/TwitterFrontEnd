@@ -9,12 +9,16 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setFollowers } from "../redux/followsSlice";
 
 function Followers() {
+  const dispatch = useDispatch();
   const params = useParams();
-  const [userInfo, setUserInfo] = useState(null);
   const token = useSelector((state) => state.user.token);
-
+  const followers = useSelector((state) => state.follows.followers);
+  const username = params.username;
+  console.log(username);
   const navigate = useNavigate();
   const handleGoBack = () => {
     navigate(-1);
@@ -29,14 +33,15 @@ function Followers() {
           Authorization: `Bearer ${token}`,
         },
       });
-      setUserInfo(response.data);
-      console.log(response.data);
+      console.log(response.data.user.followers);
+      dispatch(setFollowers(response.data.user.followers));
     }
     getUserInfo();
   }, []);
 
+  followers && console.log(followers);
   return (
-    userInfo && (
+    followers && (
       <div className="container">
         <div className="row m-0 p-0">
           <div className="col-2 col-lg-2">
@@ -52,16 +57,17 @@ function Followers() {
                 </div>
                 <div className="col-10 col-md-8 ps-2 ps-md-0">
                   <h1 className="m-0 main-username mt-3">
-                    {userInfo.user.firstname} {userInfo.user.lastname}
+                    {followers.firstname} {followers.lastname}
                   </h1>
-                  <p className="main-usertext m-0 text-body-tertiary">{userInfo.user.username}</p>
+                  <p className="main-usertext m-0 text-body-tertiary">{followers.username}</p>
                 </div>
               </div>
-              <FollowersNav user={userInfo} />
+              <FollowersNav username={username} />
 
-              {userInfo.user.followers.map((user) => {
-                return <FollowersCard key={user._id} user={user} />;
-              })}
+              {followers &&
+                followers.map((user) => {
+                  return <FollowersCard key={user._id} user={user} />;
+                })}
             </div>
           </div>
           <div className="col-md-4">

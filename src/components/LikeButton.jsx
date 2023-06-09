@@ -5,10 +5,10 @@ import axios from "axios";
 
 function LikeButton({ likes, tweet }) {
   const dispatch = useDispatch();
-  console.log(likes);
+  // console.log(likes);
   const user = useSelector((state) => state.user);
 
-  console.log(user);
+  // console.log(user);
 
   const handleLike = async (e) => {
     e.preventDefault();

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { unFollow } from "../redux/userSlice";
+import { unFollow } from "../redux/followsSlice";
 import axios from "axios";
 
 function FollowingButton({ userIdToUnFollow }) {

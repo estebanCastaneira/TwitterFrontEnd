@@ -10,16 +10,6 @@ const userSlice = createSlice({
     clearToken: (state) => {
       return null;
     },
-    follow(state, action) {
-      //  state.user.user.following.push(action.payload)
-      console.log(action.payload);
-    },
-    unFollow(state, action) {
-      // state.user.user.following = state.user.user.following.filter(
-      //   (userId) => userId !== action.payload,
-      // );
-      console.log(action.payload);
-    },
     createTweet(state, action) {
       state.tweets.push(action.payload._id);
     },
@@ -30,5 +20,5 @@ const userSlice = createSlice({
 });
 
 const { actions, reducer } = userSlice;
-export const { setToken, clearToken, follow, unFollow, createTweet, deleteTweet } = actions;
+export const { setToken, clearToken, createTweet, deleteTweet } = actions;
 export default reducer;

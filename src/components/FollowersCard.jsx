@@ -4,8 +4,7 @@ import FollowButton from "./FollowButton";
 import FollowingButton from "./FollowingButton";
 
 function FollowersCard({ user }) {
-  const loggedUserId = useSelector((state) => state.user.id);
-
+  const loggedUserId = useSelector((state) => state.user._doc._id);
   return (
     <div className="card-footer pe-2 align-items-center py-3">
       <div className="row g-0 justify-content-between align-items-center">
@@ -32,9 +31,9 @@ function FollowersCard({ user }) {
         </div>
         <div className="col-3">
           {user.followers.includes(loggedUserId) ? (
-            <FollowingButton userIdToUnFollow={user._id} />
+            <FollowingButton user={user} />
           ) : (
-            <FollowButton userIdToFollow={user._id} />
+            <FollowButton user={user} />
           )}
         </div>
       </div>

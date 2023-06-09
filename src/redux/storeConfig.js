@@ -1,4 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,
@@ -8,23 +8,24 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+} from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import userReducer from "./userSlice";
 import tweetReducer from "./tweetSlice";
-
+import followsReducer from "./followsSlice";
 
 const rootReducer = combineReducers({
   user: userReducer,
-  tweets: tweetReducer
-})
+  tweets: tweetReducer,
+  follows: followsReducer,
+});
 const persistConfig = {
-  key: 'root',
+  key: "root",
   version: 1,
   storage,
-}
+};
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = configureStore({
   reducer: persistedReducer,
@@ -34,8 +35,8 @@ const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-})
+});
 
-let persistor = persistStore(store)
+let persistor = persistStore(store);
 
-export {store, persistor}
+export { store, persistor };

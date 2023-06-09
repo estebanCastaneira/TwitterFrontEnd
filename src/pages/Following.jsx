@@ -8,12 +8,16 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setFollowing } from "../redux/followsSlice";
 
 function Following() {
+  const dispatch = useDispatch();
   const params = useParams();
   const [userInfo, setUserInfo] = useState(null);
   const token = useSelector((state) => state.user.token);
+  const following = useSelector((state) => state.follows.following);
+  const username = params.username;
 
   const navigate = useNavigate();
   const handleGoBack = () => {
@@ -30,7 +34,8 @@ function Following() {
         },
       });
       setUserInfo(response.data);
-      console.log(response.data);
+      dispatch(setFollowing(response.data.user.following));
+      // console.log(response.data);
     }
     getUserInfo();
   }, []);
@@ -57,7 +62,7 @@ function Following() {
                   <p className="main-usertext m-0 text-body-tertiary">{userInfo.user.username}</p>
                 </div>
               </div>
-              <FollowersNav user={userInfo} />
+              <FollowersNav username={username} />
 
               {userInfo.user.following.map((user) => {
                 return <FollowersCard key={user._id} user={user} />;
