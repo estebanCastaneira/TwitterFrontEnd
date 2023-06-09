@@ -24,7 +24,7 @@ function Home() {
             Authorization: `Bearer ${user.token}`,
           },
         });
-        console.log(response.data);
+        
 
         dispatch(setTweets(response.data));
       } catch (error) {

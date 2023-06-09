@@ -10,12 +10,15 @@ const tweetSlice = createSlice({
     resetTweets(state) {
       return [];
     },
-    setLikes(state, action) {
-      console.log(" ");
+    toggleLike(state, action) {
+      const tweet = state.find((item) => item._id === action.payload.tweetId);
+      tweet.likes.some((item) => item === action.payload.userId)
+        ? (tweet.likes = tweet.likes.filter((item) => item !== action.payload.userId))
+        : tweet.likes.push(action.payload.userId);
     },
   },
 });
 
 const { actions, reducer } = tweetSlice;
-export const { setTweets, setLikes, resetTweets } = actions;
+export const { setTweets, resetTweets, toggleLike } = actions;
 export default reducer;

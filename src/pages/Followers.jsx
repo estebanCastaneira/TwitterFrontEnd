@@ -33,8 +33,7 @@ function Followers() {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data.user.followers);
-      dispatch(setFollowers(response.data.user.followers));
+      setUserInfo(response.data);
     }
     getUserInfo();
   }, []);
