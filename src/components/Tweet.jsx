@@ -57,10 +57,7 @@ function Tweet({ tweet }) {
             <div className="d-flex">
               <LikeButton tweet={tweet} likes={tweet.likes} />
             </div>
-          
-               <DeleteTweet />
-            
-           
+            {user.username === tweet.author.username && <DeleteTweet />}
           </div>
         </div>
       </div>
