@@ -5,10 +5,10 @@ const userSlice = createSlice({
   initialState: null,
   reducers: {
     setToken(state, action) {
-      return { ...state, ...action.payload };
+      return action.payload;
     },
     clearToken: (state) => {
-      return { ...state, token: null };
+      return null;
     },
     follow(state, action) {
       //  state.user.user.following.push(action.payload)

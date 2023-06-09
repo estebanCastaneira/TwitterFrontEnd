@@ -11,7 +11,7 @@ import "./tweet_button_styles.css";
 function Sidebar() {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
-  const { user } = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -44,18 +44,18 @@ function Sidebar() {
             </div>
             <p className="d-none d-lg-inline ms-2">Home</p>
           </Link>
-
-          <Link
-            className="btn mb-4 p-0 border-0 d-block text-lg-start"
-            onClick={() => navigate(`profile/${user.username}`)}
-            role="button"
-          >
-            <div className=" d-inline-block" style={{ width: "23px" }}>
-              <img src="/img/icons/profile.svg" alt="Profile Icon" style={{ height: "21px" }} />
-            </div>
-            <p className="d-none d-lg-inline ms-2">Profile</p>
-          </Link>
-
+          {user && (
+            <Link
+              className="btn mb-4 p-0 border-0 d-block text-lg-start"
+              onClick={() => navigate(`profile/${user.username}`)}
+              role="button"
+            >
+              <div className=" d-inline-block" style={{ width: "23px" }}>
+                <img src="/img/icons/profile.svg" alt="Profile Icon" style={{ height: "21px" }} />
+              </div>
+              <p className="d-none d-lg-inline ms-2">Profile</p>
+            </Link>
+          )}
           <Button
             className="tweetButton btn mb-1 px-3 w-100 d-none d-lg-inline-block"
             onClick={handleShow}
@@ -105,7 +105,7 @@ function Sidebar() {
                 <div className="col-1 align-items-start m-0">
                   <a className="text-decoration-none text-black" href="#">
                     <img
-                      src={user.avatar}
+                      src={user && user.avatar}
                       className="rounded-circle"
                       width="50px"
                       height="50px"

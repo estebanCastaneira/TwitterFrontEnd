@@ -4,7 +4,7 @@ import FollowButton from "./FollowButton";
 import FollowingButton from "./FollowingButton";
 
 function FollowersCard({ user }) {
-  const loggedUserId = useSelector((state) => state.user.user.id);
+  const loggedUserId = useSelector((state) => state.user.id);
 
   return (
     <div className="card-footer pe-2 align-items-center py-3">
