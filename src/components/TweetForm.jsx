@@ -9,6 +9,7 @@ import axios from "axios";
 function TweetForm() {
   const [tweetContent, setTweetContent] = useState("");
   const user = useSelector(state => state.user._doc)
+  const token = useSelector(state => state.user.token)
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,7 +18,7 @@ function TweetForm() {
         method: "POST",
         url: "http://localhost:3000/tweets",
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${token}`,
         },
         data: {
           content: tweetContent,
@@ -53,7 +54,7 @@ function TweetForm() {
                 onChange={(e) => setTweetContent(e.target.value)}
               ></input>
             </div>
-            <div className="form-group align-self-end mt-auto mb-2 ">
+            <div className="align-self-end mt-auto mb-2 button-column">
               <TweetButton />
             </div>
           </form>
