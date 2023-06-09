@@ -116,7 +116,7 @@ function Sidebar() {
           <Modal.Body className="p-0">
             <Form>
               <Form.Group>
-                <Row className="d-flex justify-content-between ms-0 p-0">
+                <Row className="d-flex justify-content-start gap-4 ms-0 p-0">
                   <Col xs={1}>
                     <img
                       src={user.avatar}
@@ -129,7 +129,7 @@ function Sidebar() {
                     <Form.Control
                       className="border-0"
                       as="textarea"
-                      rows={3}
+                      rows={5}
                       name="content"
                       placeholder="What are you thinking?"
                       type="text"
