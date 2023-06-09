@@ -110,12 +110,12 @@ function Sidebar() {
 
         {/* <!-- MODAL TWEET --> */}
 
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header className="border-0 p-3" closeButton></Modal.Header>
-          <Modal.Body>
+        <Modal show={show} onHide={handleClose} className="mt-5">
+          <Modal.Header className="border-0 p-3 pb-2" closeButton></Modal.Header>
+          <Modal.Body className="p-0">
             <Form>
               <Form.Group>
-                <Row className="d-flex justify-content-between">
+                <Row className="d-flex justify-content-between ms-0 p-0">
                   <Col xs={1}>
                     <img
                       src={user.avatar}
@@ -140,8 +140,8 @@ function Sidebar() {
               </Form.Group>
             </Form>
           </Modal.Body>
-          <Modal.Footer className="p-1 border-0">
-            <div className="w-25 mb-2">
+          <Modal.Footer className="p-2 border-0">
+            <div className="button-column">
               <TweetButton />
             </div>
           </Modal.Footer>
