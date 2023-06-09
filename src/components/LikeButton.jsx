@@ -1,21 +1,30 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setLikes } from "../redux/tweetSlice";
+import axios from "axios";
+
 function LikeButton({ likes, tweet }) {
   const dispatch = useDispatch();
+  console.log(likes);
+  const user = useSelector((state) => state.user);
 
-  const handleSubmit = async (e) => {
+  console.log(user);
+
+  const handleLike = async (e) => {
     e.preventDefault();
+
     const response = await axios({
       method: "PATCH",
-      url: `http://localhost:3000/tweets/${tweet.id}`,
+      url: `http://localhost:3000/tweets/${tweet._id}/like`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
 
     dispatch(setLikes());
   };
-  const user = useSelector((state) => state.user);
   return (
-    <form method="POST" onSubmit={handleSubmit}>
+    <form method="PATCH" onSubmit={handleLike}>
       <button className="likes" type="submit">
         <i className={likes.includes(user.id) ? "redColor bi bi-heart-fill" : "bi bi-heart"}></i>
         <p
