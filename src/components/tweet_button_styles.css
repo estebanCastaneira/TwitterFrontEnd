@@ -19,7 +19,6 @@
 
 .tweetButton {
   color: #ffffff;
-  width: 100%;
   font-weight: 500;
   font-size: 16px;
   border: 1px solid transparent;
@@ -27,7 +26,6 @@
   background-color: #1d9bf0;
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out,
     color 0.3s ease-in-out;
-  padding: 3px;
 }
 
 .tweetButton:hover {
@@ -53,9 +51,4 @@
 #sidebarIconLogout {
   background-color: #dc3545;
   color: #ffffff;
-}
-
-.button-column {
-  width: 100px;
-  text-align: end;
 }

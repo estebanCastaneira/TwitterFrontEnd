@@ -17,7 +17,9 @@ import Following from "./pages/Following";
 import Followers from "./pages/Followers";
 //
 
-import Error404 from "./pages/Error404";
+{
+  /* 404 */
+}
 
 {
   /* tweet
@@ -41,7 +43,6 @@ function App() {
         <Route path="/profile/:username" element={<Profile />} />
         <Route path="/following/:username" element={<Following />} />
         <Route path="/followers/:username" element={<Followers />} />
-        <Route path="*" element={<Error404 />} />
       </Routes>
       {/* home */}
 
