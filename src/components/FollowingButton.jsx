@@ -1,11 +1,37 @@
-import { Link } from "react-router-dom";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { unFollow } from "../redux/userSlice";
+import axios from "axios";
 
-function FollowingButton() {
+function FollowingButton({ userIdToUnFollow }) {
+  const token = useSelector((state) => state.user.token);
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(unFollow(userIdToUnFollow));
+
+    async function saveUnFollowDb() {
+      const response = await axios({
+        method: "PATCH",
+        url: `http://localhost:3000/unfollow/${userIdToUnFollow}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data);
+    }
+    saveUnFollowDb();
+  };
+
   return (
     <div className="text-center me-2">
-      <Link className="btn mt-1 rounded-pill px-3 fw-bold followBtn w-100" to="#" role="button">
-        Follow
-      </Link>
+      <button
+        className="btn mt-1 btn-outline-dark rounded-pill fw-bold followingBtn w-100"
+        type="button"
+        onClick={handleClick}
+      >
+        Following
+      </button>
     </div>
   );
 }

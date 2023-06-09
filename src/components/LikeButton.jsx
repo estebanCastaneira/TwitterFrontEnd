@@ -20,9 +20,10 @@ function LikeButton({ likes, tweet }) {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log(response.data);
-    dispatch(setLikes(response.data.likes));
+
+    dispatch(setLikes());
   };
+  const { user } = useSelector((state) => state.user);
   return (
     <form method="PATCH" onSubmit={handleLike}>
       <button className="likes" type="submit">

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function SidebarRight() {
   return (
-    <div className="row">
+    <div className="row sticky-top">
       <aside className="d-none d-lg-block">
         <div className="bg-body-tertiary rounded p-3">
           <h3 className="mb-3 fs-5"> What´s happening</h3>
