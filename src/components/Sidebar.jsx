@@ -27,8 +27,8 @@ function Sidebar() {
   }
 
   return (
-    <div>
-      <aside id="leftSidebar" className="d-flex justify-content-center align-items-start w-100">
+    <div className="sticky-top">
+      <aside id="leftSidebar" className=" d-flex justify-content-center align-items-start w-100">
         <div className="text-end text-lg-start mt-4">
           <Link className="btn mb-4 p-0" to="/" role="button">
             <img src="/public/img/icons/twitter-logo.svg" alt="tweet" />
