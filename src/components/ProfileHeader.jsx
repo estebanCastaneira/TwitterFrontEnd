@@ -1,8 +1,6 @@
 import React from "react";
 import FollowButton from "./FollowButton";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import { useSelector } from "react-redux";
 
 function ProfileHeader({ user }) {
   return (
@@ -36,13 +34,19 @@ function ProfileHeader({ user }) {
               </div>
               <div className="col-12 col-md-6 text-md-end align-self-end mt-2 mt-md-0 ps-2">
                 <div className="d-flex p-0 justify-content-md-end gap-2">
-                  <Link className="text-decoration-none text-black" to="/Followers">
+                  <Link
+                    className="text-decoration-none text-black"
+                    to={`/followers/${user.username}`}
+                  >
                     <p className="m-0 d-inline-block">
                       <strong className="text-black follow-number">{user.followers.length} </strong>
                       <span className="main-usertext text-body-tertiary">Followers</span>
                     </p>
                   </Link>
-                  <Link className="text-decoration-none text-black" to="/Following">
+                  <Link
+                    className="text-decoration-none text-black"
+                    to={`/following/${user.username}`}
+                  >
                     <p className="m-0 d-inline-block">
                       <strong className="text-black follow-number">{user.following.length} </strong>
                       <span className="main-usertext text-body-tertiary mt-0">Following</span>

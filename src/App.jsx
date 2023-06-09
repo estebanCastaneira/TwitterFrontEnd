@@ -41,8 +41,8 @@ function App() {
         <Route path="/register" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/profile/:username" element={<Profile />} />
-        <Route path="/following" element={<Following />} />
-        <Route path="/followers" element={<Followers />} />
+        <Route path="/following/:username" element={<Following />} />
+        <Route path="/followers/:username" element={<Followers />} />
       </Routes>
       {/* home */}
 
