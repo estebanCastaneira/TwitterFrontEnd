@@ -6,7 +6,7 @@ import axios from "axios";
 function LikeButton({ likes, tweet }) {
   const dispatch = useDispatch();
   console.log(likes);
-  const { user, token } = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);
 
   console.log(user);
 
