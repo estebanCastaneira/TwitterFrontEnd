@@ -10,25 +10,26 @@ import { useDispatch } from "react-redux";
 import { setTweets } from "../redux/tweetSlice";
 
 function Home() {
- 
-  const user  = useSelector((state) => state.user);
-  const tweets = useSelector((state) => state.tweets)
+  const user = useSelector((state) => state.user);
+  const tweets = useSelector((state) => state.tweets);
   const dispatch = useDispatch();
- 
-
 
   useEffect(() => {
     async function getTweetsInfo() {
-      const response = await axios({
-        method: "GET",
-        url: `http://localhost:3000/tweets`,
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
-      
-      
-      dispatch(setTweets(response.data));
+      try {
+        const response = await axios({
+          method: "GET",
+          url: `http://localhost:3000/tweets`,
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        });
+        console.log(response.data);
+
+        dispatch(setTweets(response.data));
+      } catch (error) {
+        console.log("Error fetching tweets:", error);
+      }
     }
     getTweetsInfo();
   }, []);
@@ -41,11 +42,10 @@ function Home() {
             <Sidebar />
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
-            <TweetForm user={user}/>
-            {tweets.map(tweet => 
-              < Tweet key={tweet._id} tweet={tweet} />
-            )}
-            
+            <TweetForm user={user} />
+            {tweets.map((tweet) => (
+              <Tweet key={tweet._id} tweet={tweet} />
+            ))}
           </div>
           <div className="col-2 col-lg-4">
             <SidebarRight />

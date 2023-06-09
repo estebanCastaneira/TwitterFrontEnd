@@ -6,6 +6,7 @@ import { format, formatDistanceToNow, isSameDay } from "date-fns";
 import { enUS } from "date-fns/locale";
 
 function Tweet({ tweet }) {
+  console.log(tweet);
   return (
     <div className="card-footer tweet">
       <div className="d-flex row g-0 justify-content-between border border-top-0 p-2">
