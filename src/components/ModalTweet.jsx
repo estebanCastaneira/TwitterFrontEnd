@@ -1,4 +1,6 @@
 import { useDispatch } from "react-redux";
+import { createTweet } from "../redux/userSlice";
+import axios from "axios";
 
 function ModalTweet({show, handleClose}) {
     const [tweetContent, setTweetContent] = useState("");
@@ -48,6 +50,8 @@ function ModalTweet({show, handleClose}) {
                     rows="5"
                     placeholder="What are you thinking?"
                     type="text"
+                    value={tweetContent}
+                    onChange={(e)=> setTweetContent(e.target.value)}
                   ></input>
                 </div>
               </div>
@@ -59,3 +63,5 @@ function ModalTweet({show, handleClose}) {
         </Modal>
     )
 }
+
+export default ModalTweet;

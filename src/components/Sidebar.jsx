@@ -7,14 +7,33 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import TweetButton from "./TweetButton";
 import "./tweet_button_styles.css";
+import axios from "axios";
+import { createTweet } from "../redux/userSlice";
 
 function Sidebar() {
   const [show, setShow] = useState(false);
-  const { user } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  const [tweetContent, setTweetContent] = useState("");
+  const user = useSelector((state) => state.user);
+ 
 
-  const handleSubmit = (e) => {
+  const dispatch = useDispatch();
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if(tweetContent){
+      const response = await axios({
+        method: "POST",
+        url: "http://localhost:3000/tweets",
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+        data:{
+          content: tweetContent,
+        }
+      }) 
+      dispatch(createTweet(response.data));
+      handleClose();
+      setTweetContent("")
+    }  
   };
   const isProfilePage = location.pathname === `/profile/${user.username}`;
   
@@ -119,6 +138,8 @@ function Sidebar() {
                     rows="5"
                     placeholder="What are you thinking?"
                     type="text"
+                    value={tweetContent}
+                    onChange={(e)=> setTweetContent(e.target.value)}
                   ></input>
                 </div>
               </div>
