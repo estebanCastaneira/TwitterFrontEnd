@@ -11,22 +11,22 @@ function TweetForm({ user }) {
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if(tweetContent){
+    if (tweetContent) {
       const response = await axios({
         method: "POST",
         url: "http://localhost:3000/tweets",
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
-        data:{
+        data: {
           content: tweetContent,
-        }
-      }) 
+        },
+      });
       dispatch(createTweet(response.data));
-      setTweetContent("")
-    }  
+      setTweetContent("");
+    }
   };
-  
+
   return (
     <div>
       <h2 className="fs-4 my-3">Home</h2>
@@ -42,11 +42,7 @@ function TweetForm({ user }) {
           />
         </Link>
         <div className="col-10 p-0">
-          <form
-            className="d-flex flex-column"
-            onSubmit={handleSubmit}
-            style={{ height: "150px" }}
-          >
+          <form className="d-flex flex-column" onSubmit={handleSubmit} style={{ height: "150px" }}>
             <div className="form-group p-0">
               <input
                 name="content"
@@ -54,7 +50,7 @@ function TweetForm({ user }) {
                 rows="5"
                 placeholder="What's happening?"
                 type="text"
-                onChange={(e)=> setTweetContent(e.target.value)}
+                onChange={(e) => setTweetContent(e.target.value)}
               ></input>
             </div>
             <div className="form-group align-self-end mt-auto mb-2 ">
