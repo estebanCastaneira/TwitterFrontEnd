@@ -5,14 +5,17 @@ const tweetSlice = createSlice({
   initialState: [],
   reducers: {
     setTweets(state, action) {
-        return action.payload
+      return action.payload;
+    },
+    resetTweets(state) {
+      return [];
     },
     setLikes(state, action) {
-      console.log("llegamos hasta acá")
-    }
+      console.log(" ");
+    },
   },
 });
 
 const { actions, reducer } = tweetSlice;
-export const { setTweets, setLikes } = actions;
+export const { setTweets, setLikes, resetTweets } = actions;
 export default reducer;

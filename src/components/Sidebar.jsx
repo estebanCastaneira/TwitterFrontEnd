@@ -1,12 +1,13 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { clearToken } from "../redux/userSlice";
-import { useDispatch } from "react-redux";
+import { resetTweets } from "../redux/tweetSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import TweetButton from "./TweetButton";
-import { useSelector } from "react-redux";
-import "./tweet_button_styles.css"
+import "./tweet_button_styles.css";
 
 function Sidebar() {
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ function Sidebar() {
 
   function handleLogout() {
     dispatch(clearToken());
+    dispatch(resetTweets());
   }
 
   return (
@@ -65,10 +67,13 @@ function Sidebar() {
           >
             Tweet
           </Button>
-          <Button  id="sidebarIconTweet" className="rounded-circle p-2 d-lg-none" href="#" role="button">
-          
-            <img src="/icons/write.svg" style={{height: "21px"}} />
-    
+          <Button
+            id="sidebarIconTweet"
+            className="rounded-circle p-2 d-lg-none"
+            href="#"
+            role="button"
+          >
+            <img src="/icons/write.svg" style={{ height: "21px" }} />
           </Button>
           <Link
             id="sidebarIconLogout"
