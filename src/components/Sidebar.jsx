@@ -3,7 +3,6 @@ import { useState } from "react";
 import { clearToken } from "../redux/userSlice";
 import { resetTweets } from "../redux/tweetSlice";
 import { useDispatch, useSelector } from "react-redux";
-
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import TweetButton from "./TweetButton";
