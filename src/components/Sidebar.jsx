@@ -114,7 +114,7 @@ function Sidebar() {
         <Modal show={show} onHide={handleClose} className="mt-5">
           <Modal.Header className="border-0 p-3 pb-2" closeButton></Modal.Header>
           <Modal.Body className="p-0">
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <Form.Group>
                 <Row className="d-flex justify-content-start gap-4 ms-0 p-0">
                   <Col xs={1}>

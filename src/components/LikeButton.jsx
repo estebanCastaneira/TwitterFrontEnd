@@ -9,7 +9,6 @@ function LikeButton({ tweet }) {
   const dispatch = useDispatch();
 
   const handleLike = async (e) => {
-    console.log("handleLike");
     e.preventDefault();
     const response = await axios({
       method: "PATCH",
