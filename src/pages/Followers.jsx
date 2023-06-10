@@ -4,12 +4,10 @@ import FollowersNav from "../components/FollowersNav";
 import Sidebar from "../components/Sidebar";
 import "./Following.css";
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { setFollowers } from "../redux/followsSlice";
 
 function Followers() {
@@ -33,7 +31,8 @@ function Followers() {
           Authorization: `Bearer ${token}`,
         },
       });
-      setUserInfo(response.data);
+      dispatch(setFollowers(response.data.user.followers));
+      console.log(response.data.user.firstname);
     }
     getUserInfo();
   }, []);

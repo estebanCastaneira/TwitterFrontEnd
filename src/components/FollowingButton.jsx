@@ -3,17 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { unFollow } from "../redux/followsSlice";
 import axios from "axios";
 
-function FollowingButton({ userIdToUnFollow }) {
+function FollowingButton({ user }) {
   const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(unFollow(userIdToUnFollow));
+    dispatch(unFollow(user));
 
     async function saveUnFollowDb() {
       const response = await axios({
         method: "PATCH",
-        url: `http://localhost:3000/unfollow/${userIdToUnFollow}`,
+        url: `http://localhost:3000/unfollow/${user._id}`,
         headers: {
           Authorization: `Bearer ${token}`,
         },
