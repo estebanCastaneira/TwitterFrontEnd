@@ -1,24 +1,22 @@
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { deleteTweet } from "../redux/userSlice";
+import { deleteTweet } from "../redux/tweetSlice";
 
 function DeleteTweet({tweet}) {
     const dispatch = useDispatch();
     const token = useSelector(state => state.user.token )
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(tweet)
-        // const response = await axios({
-        //     method: "DELETE",
-        //     url: `http://localhost:3000/tweets/${tweet._id}`,
-        //     headers:{
-        //         Authorization: `Bearer ${token}`
-        //     }
-        // })
-        
-        
-       
+        const response = await axios({
+            method: "DELETE",
+            url: `http://localhost:3000/tweets/${tweet._id}`,
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
+        })
+        console.log(response);
+        dispatch(deleteTweet(tweet._id));
     }
     return (
         <div>

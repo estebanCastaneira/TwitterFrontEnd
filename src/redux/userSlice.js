@@ -13,12 +13,9 @@ const userSlice = createSlice({
     createTweet(state, action) {
       state._doc.tweets.push(action.payload._id);
     },
-    deleteTweet(state, action) {
-      console.log(state.tweets)
-    },
   },
 });
 
 const { actions, reducer } = userSlice;
-export const { setToken, clearToken, createTweet, deleteTweet } = actions;
+export const { setToken, clearToken, createTweet } = actions;
 export default reducer;
