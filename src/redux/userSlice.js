@@ -10,12 +10,9 @@ const userSlice = createSlice({
     clearToken: (state) => {
       return null;
     },
-    createTweet(state, action) {
-      state._doc.tweets.push(action.payload._id);
-    },
   },
 });
 
 const { actions, reducer } = userSlice;
-export const { setToken, clearToken, createTweet } = actions;
+export const { setToken, clearToken } = actions;
 export default reducer;

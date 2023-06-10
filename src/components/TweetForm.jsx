@@ -2,7 +2,7 @@ import TweetButton from "./TweetButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { createTweet } from "../redux/userSlice";
+import { createTweet } from "../redux/tweetSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 

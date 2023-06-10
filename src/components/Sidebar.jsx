@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { clearToken } from "../redux/userSlice";
-import { resetTweets } from "../redux/tweetSlice";
+import { resetTweets, createTweet } from "../redux/tweetSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal, Form, Button, Col, Row } from "react-bootstrap";
 import TweetButton from "./TweetButton";
 import "./tweet_button_styles.css";
 import axios from "axios";
-import { createTweet } from "../redux/userSlice";
 
 function Sidebar() {
   const [show, setShow] = useState(false);
