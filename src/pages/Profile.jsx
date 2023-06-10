@@ -39,12 +39,6 @@ function Profile() {
             <div>
               {userInfo &&
                 tweets.map((tweet) => {
-                  tweet.author = {
-                    avatar: userInfo.avatar,
-                    username: userInfo.username,
-                    firstname: userInfo.firstname,
-                    lastname: userInfo.lastname,
-                  };
                   return <Tweet key={tweet._id} tweet={tweet} />;
                 })}
             </div>
