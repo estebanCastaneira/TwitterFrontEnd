@@ -39,8 +39,11 @@ function Profile() {
             <div>
               {userInfo &&
                 tweets.map((tweet) => {
-                  return <Tweet key={tweet._id} tweet={tweet} />;
-                })}
+                  if(userInfo.username === tweet.author.username){
+                    return <Tweet key={tweet._id} tweet={tweet} />
+                  }
+                })
+              }
             </div>
           </div>
           <div className="col-2 col-lg-4">
