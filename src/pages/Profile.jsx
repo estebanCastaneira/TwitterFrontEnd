@@ -12,7 +12,7 @@ function Profile() {
   const params = useParams();
   const [userInfo, setUserInfo] = useState(null);
   const token = useSelector((state) => state.user.token);
-
+  const tweets = useSelector((state) => state.tweets)
   useEffect(() => {
     async function getUserInfo() {
       const response = await axios({
@@ -38,7 +38,7 @@ function Profile() {
             <ProfileHeader user={userInfo} />
             <div>
               {userInfo &&
-                userInfo.tweets.map((tweet) => {
+                tweets.map((tweet) => {
                   tweet.author = {
                     avatar: userInfo.avatar,
                     username: userInfo.username,
