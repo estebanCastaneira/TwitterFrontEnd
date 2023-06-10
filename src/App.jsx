@@ -1,35 +1,11 @@
-import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
-
-{
-  /* login
-    register */
-}
-
 import Home from "./pages/Home";
-
 import Profile from "./pages/Profile";
-
-//
 import Following from "./pages/Following";
 import Followers from "./pages/Followers";
-//
-
 import Error404 from "./pages/Error404";
-
-{
-  /* tweet
-    tweetform */
-}
-
-{
-  /* navBar
-    sidebar */
-}
-
-import "./App.css";
 
 function App() {
   return (
@@ -43,32 +19,6 @@ function App() {
         <Route path="/followers/:username" element={<Followers />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
-      {/* home */}
-
-      {/* profile */}
-
-      {/* 404 */}
-
-      {/* navBar
-    sidebar */}
-
-      {/* login
-    register */}
-
-      {/* home */}
-
-      {/* profile */}
-
-      {/* following
-    followers */}
-
-      {/* 404 */}
-
-      {/* tweet
-    tweetform */}
-
-      {/* navBar
-    sidebar */}
     </>
   );
 }
