@@ -15,7 +15,6 @@ function DeleteTweet({tweet}) {
                 Authorization: `Bearer ${token}`
             }
         })
-        console.log(response);
         dispatch(deleteTweet(tweet._id));
     }
     return (
