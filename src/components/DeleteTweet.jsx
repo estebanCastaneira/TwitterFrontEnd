@@ -5,7 +5,7 @@ import { deleteTweet } from "../redux/tweetSlice";
 
 function DeleteTweet({tweet}) {
     const dispatch = useDispatch();
-    const token = useSelector(state => state.user.token )
+    const token = useSelector( state => state.user.token )
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await axios({

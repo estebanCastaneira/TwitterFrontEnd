@@ -28,9 +28,9 @@ function Sidebar() {
           content: tweetContent,
         },
       });
-      dispatch(createTweet(response.data));
       handleClose();
       setTweetContent("");
+      dispatch(createTweet(response.data));
     }
   };
   const isProfilePage = location.pathname === `/profile/${user.username}`;
@@ -109,11 +109,11 @@ function Sidebar() {
         </div>
 
         {/* <!-- MODAL TWEET --> */}
-
+        
         <Modal show={show} onHide={handleClose} className="mt-5">
           <Modal.Header className="border-0 p-3 pb-2" closeButton></Modal.Header>
           <Modal.Body className="p-0">
-            <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
               <Form.Group>
                 <Row className="d-flex justify-content-start gap-4 ms-0 p-0">
                   <Col xs={1}>
@@ -138,14 +138,18 @@ function Sidebar() {
                   </Col>
                 </Row>
               </Form.Group>
-            </Form>
-          </Modal.Body>
+            
+         
           <Modal.Footer className="p-2 border-0">
             <div className="button-column">
-              <TweetButton />
+              <TweetButton onClick={handleClose}/>
             </div>
           </Modal.Footer>
+          </Form>
+          </Modal.Body>
         </Modal>
+     
+       
       </aside>
     </div>
   );
