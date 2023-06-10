@@ -43,7 +43,7 @@ function Home() {
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
             <TweetForm user={user} />
-            {tweets.map((tweet) => (
+            {tweets && tweets.map((tweet) => (
               <Tweet key={tweet._id} tweet={tweet} />
             ))}
           </div>

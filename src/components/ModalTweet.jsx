@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { createTweet } from "../redux/userSlice";
+import { createTweet } from "../redux/tweetSlice";
 import axios from "axios";
 
 function ModalTweet({show, handleClose}) {

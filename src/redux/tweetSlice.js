@@ -16,9 +16,17 @@ const tweetSlice = createSlice({
         ? (tweet.likes = tweet.likes.filter((item) => item !== action.payload.userId))
         : tweet.likes.push(action.payload.userId);
     },
+    createTweet(state, action) {
+      state.push(action.payload);
+    },
+    deleteTweet(state, action) {
+     
+      return state.filter(tweet => tweet._id !== action.payload)
+      
+    },
   },
 });
 
 const { actions, reducer } = tweetSlice;
-export const { setTweets, resetTweets, toggleLike } = actions;
+export const { setTweets, resetTweets, toggleLike, createTweet, deleteTweet } = actions;
 export default reducer;

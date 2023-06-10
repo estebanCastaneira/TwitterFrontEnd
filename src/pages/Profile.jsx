@@ -12,7 +12,7 @@ function Profile() {
   const params = useParams();
   const [userInfo, setUserInfo] = useState(null);
   const token = useSelector((state) => state.user.token);
-
+  const tweets = useSelector((state) => state.tweets)
   useEffect(() => {
     async function getUserInfo() {
       const response = await axios({
@@ -38,15 +38,12 @@ function Profile() {
             <ProfileHeader user={userInfo} />
             <div>
               {userInfo &&
-                userInfo.tweets.map((tweet) => {
-                  tweet.author = {
-                    avatar: userInfo.avatar,
-                    username: userInfo.username,
-                    firstname: userInfo.firstname,
-                    lastname: userInfo.lastname,
-                  };
-                  return <Tweet key={tweet._id} tweet={tweet} />;
-                })}
+                tweets.map((tweet) => {
+                  if(userInfo.username === tweet.author.username){
+                    return <Tweet key={tweet._id} tweet={tweet} />
+                  }
+                })
+              }
             </div>
           </div>
           <div className="col-2 col-lg-4">

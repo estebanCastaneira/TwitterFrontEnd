@@ -2,7 +2,7 @@ import TweetButton from "./TweetButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import { createTweet } from "../redux/userSlice";
+import { createTweet } from "../redux/tweetSlice";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 
@@ -13,7 +13,9 @@ function TweetForm() {
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (tweetContent) {
+      setTweetContent("");
       const response = await axios({
         method: "POST",
         url: "http://localhost:3000/tweets",
@@ -24,8 +26,8 @@ function TweetForm() {
           content: tweetContent,
         },
       });
+      
       dispatch(createTweet(response.data));
-      setTweetContent("");
     }
   };
 
@@ -51,6 +53,7 @@ function TweetForm() {
                 rows="5"
                 placeholder="What's happening?"
                 type="text"
+                value={tweetContent}
                 onChange={(e) => setTweetContent(e.target.value)}
               ></input>
             </div>
