@@ -41,7 +41,7 @@ function Login() {
       },
     });
 
-    console.log(response.data);
+ 
 
     const token = response.data.token;
     if (token) {
