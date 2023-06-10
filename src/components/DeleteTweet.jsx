@@ -8,14 +8,15 @@ function DeleteTweet({tweet}) {
     const token = useSelector(state => state.user.token )
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios({
-            method: "DELETE",
-            url: `http://localhost:3000/tweets/${tweet._id}`,
-            headers:{
-                Authorization: `Bearer ${token}`
-            }
-        })
-        console.log(response);
+        console.log(tweet)
+        // const response = await axios({
+        //     method: "DELETE",
+        //     url: `http://localhost:3000/tweets/${tweet._id}`,
+        //     headers:{
+        //         Authorization: `Bearer ${token}`
+        //     }
+        // })
+        
         
        
     }
