@@ -37,11 +37,11 @@ function Profile() {
   return (
     <>
       <div className="container">
-        <div className="row m-0 p-0">
-          <div className="col-2 col-lg-2">
+        <div className="row m-0 p-0 justify-content-center">
+          <div className="col-2 col-md-2 col-lg-2">
             <Sidebar />
           </div>
-          <div className="col-9 col-lg-6 col-xl-5 p-0">
+          <div className="col-10 col-md-9 col-lg-6 col-xl-5 p-0">
             <ProfileHeader user={userInfo} />
             <div>
               {userInfo &&

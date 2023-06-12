@@ -40,11 +40,11 @@ function Followers() {
   return (
     followers && (
       <div className="container">
-        <div className="row m-0 p-0">
-          <div className="col-2 col-lg-2">
+        <div className="row m-0 p-0 justify-content-center">
+          <div className="col-2 col-md-2 col-lg-2">
             <Sidebar />
           </div>
-          <div className="col-9 col-lg-6 col-xl-5 p-0">
+          <div className="col-10 col-md-9 col-lg-6 col-xl-5 p-0">
             <div className="container-sm mw-50 pb-0 border">
               <div className="d-flex flex-row align-items-center ">
                 <div className="col-1 align-item-center me-2">

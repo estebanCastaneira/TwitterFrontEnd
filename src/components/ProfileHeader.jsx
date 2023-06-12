@@ -13,11 +13,11 @@ function ProfileHeader({ user }) {
       <div>
         <div id="mainHeader" className="container-sm mw-50 pb-0 border">
           <div id="profileHeader" className="row position-relative">
-            <div id="containerPhoto" className="col-8 col-md-12">
+            <div id="containerPhoto" className="col">
               <img
                 id="profilePhoto"
                 src={user.avatar}
-                className="rounded-circle img-fluid"
+                className="rounded-circle img-fluid col-4 col-md-5 col-lg-4 col-xl-4 m-0"
                 width="170px"
                 height="170px"
                 alt="User profile photo"

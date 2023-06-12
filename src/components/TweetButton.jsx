@@ -1,9 +1,11 @@
 import "./tweet_button_styles.css";
 
-function TweetButton() {
+function TweetButton({ disabled }) {
+  const buttonClass = disabled ? "tweetButton disabledButton" : "tweetButton";
+
   return (
     <>
-      <button type="submit" className="tweetButton">
+      <button type="submit" className={buttonClass} disabled={disabled}>
         Tweet
       </button>
     </>

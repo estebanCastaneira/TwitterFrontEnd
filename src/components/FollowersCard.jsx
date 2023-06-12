@@ -5,9 +5,9 @@ import FollowsButton from "./FollowsButton";
 
 function FollowersCard({ user }) {
   return (
-    <div className="card-footer pe-2 align-items-center py-3">
+    <div className="card-footer align-items-center py-3">
       <div className="row g-0 justify-content-between align-items-center">
-        <div className="col-2 align-items-start m-0">
+        <div className="col-1 align-items-start m-0">
           <Link className="text-decoration-none text-black" to={`/profile/${user.username}`}>
             <div className="d-flex justify-content-around align-items-center ps-3 ps-md-0">
               <img
@@ -20,7 +20,7 @@ function FollowersCard({ user }) {
             </div>
           </Link>
         </div>
-        <div className="col-6 col-md-7">
+        <div className="col-5 col-md-6 col-lg-7">
           <Link className="text-decoration-none text-black" to={`/profile/${user.username}`}>
             <div className="card-body">
               <h5 className="card-title mb-0 p-0 fs-6">
@@ -32,7 +32,7 @@ function FollowersCard({ user }) {
             </div>
           </Link>
         </div>
-        <div className="col-3">
+        <div className="col-4 col-lg-3">
           <FollowsButton user={user} />
         </div>
       </div>

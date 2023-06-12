@@ -30,10 +30,14 @@
   padding: 3px;
 }
 
-.tweetButton:hover {
+.tweetButton:not(:disabled):hover {
   background-color: #ffffff;
   border: 1px solid black;
   color: black;
+}
+
+.disabledButton {
+  opacity: 0.6;
 }
 
 #leftSidebar {

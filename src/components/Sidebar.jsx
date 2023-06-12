@@ -45,68 +45,73 @@ function Sidebar() {
 
   return (
     <div className="sticky-top">
-      <aside id="leftSidebar" className=" d-flex justify-content-center align-items-start w-100">
-        <div className="text-center text-lg-start mt-4">
-          <Link className="btn mb-4 p-0 ps-1 ps-lg-0 sidebar_button" to="/" role="button">
+      <aside
+        id="leftSidebar"
+        className=" d-flex justify-content-center justify-content-xl-start align-items-start w-100 h-100"
+      >
+        <div className="mt-4 m-0">
+          <Link className="btn mb-4 p-0 ps-1  sidebar_button" to="/" role="button">
             <img src="/public/img/icons/twitter-logo.svg" alt="tweet" />
           </Link>
 
           <Link
-            className="btn mb-4 p-0 ps-1 ps-lg-0 border-0 d-block text-center text-lg-start sidebar_button"
+            className="btn mb-4 p-0 ps-1  border-0 d-block text-center text-lg-start sidebar_button"
             to="/"
             role="button"
           >
             <div className="me-1 d-inline-block" style={{ width: "23px" }}>
               <img src="/img/icons/home.svg" alt="Home Icon" style={{ height: "21px" }} />
             </div>
-            <p className="d-none d-lg-inline ms-2">Home</p>
+            <p className="d-none d-xl-inline ms-2">Home</p>
           </Link>
           {user && (
             <Link
-              className="btn mb-4 p-0 border-0 d-block text-center text-lg-start sidebar_button"
+              className="btn mb-4 p-0 ps-lg-2 border-0 d-block text-center text-lg-start sidebar_button"
               to={isProfilePage ? "#" : `/profile/${user.username}`}
               role="button"
             >
               <div className=" d-inline-block" style={{ width: "23px" }}>
                 <img src="/img/icons/profile.svg" alt="Profile Icon" style={{ height: "21px" }} />
               </div>
-              <p className="d-none d-lg-inline ms-2">Profile</p>
+              <p className="d-none d-xl-inline ms-2">Profile</p>
             </Link>
           )}
-          <Button
-            className="tweetButton mb-1 px-3 d-none d-lg-inline-block "
-            onClick={handleShow}
-            role="button"
-          >
-            Tweet
-          </Button>
-          <Button
-            id="sidebarIconTweet"
-            className="rounded-circle p-2 d-lg-none mb-3 sidebar_button "
-            onClick={handleShow}
-            role="button"
-          >
-            <img src="/icons/write.svg" style={{ height: "21px" }} />
-          </Button>
-          <Link
-            id="sidebarIconLogout"
-            className="rounded-circle p-2 d-lg-none d-flex aling-self-end sidebar_button"
-            to="/login"
-            role="button"
-            onClick={handleLogout}
-          >
-            <img src="/icons/logout.svg" style={{ height: "23px" }} />
-          </Link>
-          <Link
-            id="logoutButton"
-            className="btn mt-1 rounded-pill px-3 w-100 fw-semibold d-none d-lg-inline-block"
-            to="/login"
-            role="button"
-            onClick={handleLogout}
-          >
-            Logout
-          </Link>
         </div>
+        <Button
+          className="tweetButton mb-1 px-3 d-none d-xl-inline-block w-100 mt-auto position-absolute"
+          onClick={handleShow}
+          role="button"
+          style={{ top: "170px" }}
+        >
+          Tweet
+        </Button>
+        <Button
+          id="sidebarIconTweet"
+          className="rounded-circle p-2 d-xl-none sidebar_button mt-auto position-absolute "
+          onClick={handleShow}
+          role="button"
+          style={{ top: "170px" }}
+        >
+          <img src="/icons/write.svg" style={{ height: "21px" }} />
+        </Button>
+        <Link
+          id="logoutButton"
+          className="btn mt-1 rounded-pill w-100 fw-semibold d-none d-xl-inline-block mt-auto position-absolute bottom-0"
+          to="/login"
+          role="button"
+          onClick={handleLogout}
+        >
+          Logout
+        </Link>
+        <Link
+          id="sidebarIconLogout"
+          className="rounded-circle p-2 d-xl-none sidebar_button mt-auto position-absolute bottom-0"
+          to="/login"
+          role="button"
+          onClick={handleLogout}
+        >
+          <img src="/icons/logout.svg" style={{ height: "23px" }} />
+        </Link>
 
         {/* <!-- MODAL TWEET --> */}
 

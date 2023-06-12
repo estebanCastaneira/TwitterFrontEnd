@@ -18,7 +18,7 @@ function Home() {
   useEffect(() => {
     async function getTweetsInfo() {
       try {
-        if(tweets.length === 0){
+        if (tweets.length === 0) {
           const response = await axios({
             method: "GET",
             url: `http://localhost:3000/tweets`,
@@ -38,17 +38,17 @@ function Home() {
   return (
     <>
       <div className="container">
-        <div className="row m-0 p-0">
-          <div className="col-2 col-lg-2">
+        <div className="row m-0 p-0 justify-content-center">
+          <div className="col-2 col-md-2 col-lg-2">
             <Sidebar />
           </div>
-          <div className="col-9 col-lg-6 col-xl-5 p-0">
+          <div className="col-10 col-md-9 col-lg-6 col-xl-5 p-0">
             <TweetForm user={user} />
             {sortedTweets.map((tweet) => (
               <Tweet key={tweet._id} tweet={tweet} />
             ))}
           </div>
-          <div className="col-2 col-lg-4">
+          <div className="col-2 col-lg-4 col-xxl-3">
             <SidebarRight />
           </div>
         </div>

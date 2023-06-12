@@ -15,7 +15,7 @@ function Tweet({ tweet }) {
         <div className="col-2 m-0">
           <Link
             className="text-decoration-none text-black"
-            to={isProfilePage ? "#" : `/profile/${tweet.author.username}`}
+            to={isProfilePage ? "#" : `profile/${tweet.author.username}`}
           >
             <img
               src={tweet.author.avatar}
@@ -26,28 +26,28 @@ function Tweet({ tweet }) {
             />
           </Link>
         </div>
-        <div className="col-9 col-md-10">
+        <div className="col-10">
           <div className="text-start">
-            <div className="card-body d-flex align-items-end mb-1">
+            <div className="card-body d-flex align-items-end mb-1 gap-1">
               <Link
                 className="text-decoration-none text-black"
-                to={isProfilePage ? "#" : `/profile/${tweet.author.username}`}
+                to={isProfilePage ? "#" : `profile/${tweet.author.username}`}
               >
                 <p className="card-title p-0 fw-bold username">
                   {tweet.author.firstname} {tweet.author.lastname}
                 </p>
               </Link>
-              <small className="card-text tweet-text mx-1 text-body-tertiary">
+              <small className="card-text tweet-text text-body-tertiary">
                 {tweet.author.username}
               </small>
-              <small className="card-text  tweet-text mx-1 text-body-tertiary">•</small>
+              <small className="card-text  tweet-text text-body-tertiary">•</small>
               <small className="card-text tweet-text text-body-tertiary">
                 {isSameDay(new Date(tweet.createdAt), new Date())
                   ? formatDistanceToNow(new Date(tweet.createdAt), {
                       addSuffix: true,
                       locale: enUS,
                     })
-                  : format(new Date(tweet.createdAt), "MMMM do yyyy", { locale: enUS })}
+                  : format(new Date(tweet.createdAt), "MMM do", { locale: enUS })}
               </small>
             </div>
           </div>
