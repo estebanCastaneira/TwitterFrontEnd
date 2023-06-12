@@ -2,7 +2,7 @@ import FollowersCard from "../components/FollowersCard";
 import SidebarRight from "../components/SidebarRight";
 import FollowersNav from "../components/FollowersNav";
 import Sidebar from "../components/Sidebar";
-import "./Following.css";
+import "./following_styles.css";
 import axios from "axios";
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";

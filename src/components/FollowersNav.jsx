@@ -1,13 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../pages/Following.css";
+import "../pages/following_styles.css";
 
 function FollowersNav({ username }) {
   const pageOn = location.pathname;
   const isFollowers = pageOn.includes("followers") ? "underline" : "";
   const isFollowing = pageOn.includes("following") ? "underline" : "";
-  console.log(isFollowers);
-  console.log(isFollowing);
 
   return (
     <div className="d-flex justify-content-around  mb-0 sticky-top pt-4 bg-white">
