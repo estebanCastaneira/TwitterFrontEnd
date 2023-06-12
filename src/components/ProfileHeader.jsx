@@ -13,13 +13,13 @@ function ProfileHeader({ user }) {
       <div>
         <div id="mainHeader" className="container-sm mw-50 pb-0 border">
           <div id="profileHeader" className="row position-relative">
-            <div id="containerPhoto" className="col">
+            <div id="containerPhoto">
               <img
                 id="profilePhoto"
                 src={user.avatar}
-                className="rounded-circle img-fluid col-4 col-md-5 col-lg-4 col-xl-4 m-0"
-                width="170px"
-                height="170px"
+                className="rounded-circle img-fluid  m-0"
+                width="160px"
+                height="160px"
                 alt="User profile photo"
               />
             </div>
@@ -30,7 +30,7 @@ function ProfileHeader({ user }) {
             </div>
             <div className="row d-flex align-self-end justify-content-md-between p-0 m-0">
               <div className="col-12 col-md-auto align-self-end p-0">
-                <div id="userName" className="ms-2">
+                <div id="userName" className="ms-3">
                   <h1 className="m-0 main-username">
                     {user.firstname} {user.lastname}
                   </h1>
@@ -38,7 +38,7 @@ function ProfileHeader({ user }) {
                 </div>
               </div>
               <div className="col-12 col-md-6 text-md-end align-self-end mt-2 mt-md-0 ps-2">
-                <div className="d-flex p-0 justify-content-md-end gap-2">
+                <div className="d-flex p-0 justify-content-md-end gap-2 ms-2">
                   <Link
                     className="text-decoration-none text-black"
                     to={`/followers/${user.username}`}
@@ -66,7 +66,7 @@ function ProfileHeader({ user }) {
             </div>
             <div className="row p-0 m-0">
               <div className="col-12 align-self-end">
-                <h4 className="m-0" id="tweets">
+                <h4 className="m-0 ms-1" id="tweets">
                   Tweets
                 </h4>
               </div>
