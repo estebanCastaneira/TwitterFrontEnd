@@ -34,11 +34,14 @@ function TweetForm() {
 
   return (
     <div className="border">
-      <div className="d-flex flex-row p-2 pb-0 mb-3">
+      <div className="d-flex flex-row p-2 ps-3 pb-0 mb-3">
         <h5>Home</h5>
       </div>
       <div className="d-flex flex-row justify-content-between p-2 pb-0">
-        <Link className="text-decoration-none text-black col-2" to={`/profile/${user.username}`}>
+        <Link
+          className="text-decoration-none text-black col-2 ps-1"
+          to={`/profile/${user.username}`}
+        >
           <img
             src={user && user.avatar}
             className="rounded-circle"
