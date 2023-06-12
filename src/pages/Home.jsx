@@ -24,7 +24,6 @@ function Home() {
             Authorization: `Bearer ${user.token}`,
           },
         });
-        
 
         dispatch(setTweets(response.data));
       } catch (error) {
@@ -33,6 +32,8 @@ function Home() {
     }
     getTweetsInfo();
   }, []);
+
+  const sortedTweets = [...tweets].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   return (
     <>
@@ -43,7 +44,7 @@ function Home() {
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
             <TweetForm user={user} />
-            {tweets && tweets.map((tweet) => (
+            {sortedTweets.map((tweet) => (
               <Tweet key={tweet._id} tweet={tweet} />
             ))}
           </div>
