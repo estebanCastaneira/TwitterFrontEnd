@@ -29,7 +29,7 @@ function Profile() {
       dispatch(setFollowing(response.data.following));
     }
     getUserInfo();
-  }, []);
+  }, [params.username]);
 
   return (
     <>

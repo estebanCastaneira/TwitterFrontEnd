@@ -13,7 +13,7 @@ function Sidebar() {
   const [tweetContent, setTweetContent] = useState("");
   const user = useSelector((state) => state.user._doc);
   const token = useSelector((state) => state.user.token);
- 
+
   const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,7 +64,7 @@ function Sidebar() {
           {user && (
             <Link
               className="btn mb-4 p-0 border-0 d-block text-center text-lg-start sidebar_button"
-              to={isProfilePage ? "#" : `profile/${user.username}`}
+              to={isProfilePage ? "#" : `/profile/${user.username}`}
               role="button"
             >
               <div className=" d-inline-block" style={{ width: "23px" }}>
@@ -109,11 +109,11 @@ function Sidebar() {
         </div>
 
         {/* <!-- MODAL TWEET --> */}
-        
+
         <Modal show={show} onHide={handleClose} className="mt-5">
           <Modal.Header className="border-0 p-3 pb-2" closeButton></Modal.Header>
           <Modal.Body className="p-0">
-          <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
               <Form.Group>
                 <Row className="d-flex justify-content-start gap-4 ms-0 p-0">
                   <Col xs={1}>
@@ -138,18 +138,15 @@ function Sidebar() {
                   </Col>
                 </Row>
               </Form.Group>
-            
-         
-          <Modal.Footer className="p-2 border-0">
-            <div className="button-column">
-              <TweetButton onClick={handleClose}/>
-            </div>
-          </Modal.Footer>
-          </Form>
+
+              <Modal.Footer className="p-2 border-0">
+                <div className="button-column">
+                  <TweetButton onClick={handleClose} />
+                </div>
+              </Modal.Footer>
+            </Form>
           </Modal.Body>
         </Modal>
-     
-       
       </aside>
     </div>
   );

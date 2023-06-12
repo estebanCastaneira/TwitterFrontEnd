@@ -65,7 +65,7 @@ function Following() {
 
               {following &&
                 following.map((user) => {
-                  return <FollowersCard key={user.id} user={user} />;
+                  return <FollowersCard key={user._id} user={user} />;
                 })}
             </div>
           </div>

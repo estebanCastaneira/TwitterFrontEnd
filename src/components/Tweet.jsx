@@ -15,7 +15,7 @@ function Tweet({ tweet }) {
         <div className="col-2 m-0">
           <Link
             className="text-decoration-none text-black"
-            to={isProfilePage ? "#" : `profile/${tweet.author.username}`}
+            to={isProfilePage ? "#" : `/profile/${tweet.author.username}`}
           >
             <img
               src={tweet.author.avatar}
@@ -31,7 +31,7 @@ function Tweet({ tweet }) {
             <div className="card-body d-flex align-items-end mb-1">
               <Link
                 className="text-decoration-none text-black"
-                to={isProfilePage ? "#" : `profile/${tweet.author.username}`}
+                to={isProfilePage ? "#" : `/profile/${tweet.author.username}`}
               >
                 <p className="card-title p-0 fw-bold username">
                   {tweet.author.firstname} {tweet.author.lastname}
@@ -60,7 +60,7 @@ function Tweet({ tweet }) {
             <div className="d-flex">
               <LikeButton tweet={tweet} />
             </div>
-            {user.username === tweet.author.username && <DeleteTweet tweet={tweet}/>}
+            {user.username === tweet.author.username && <DeleteTweet tweet={tweet} />}
           </div>
         </div>
       </div>

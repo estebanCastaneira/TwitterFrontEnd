@@ -4,20 +4,11 @@ import FollowingButton from "./FollowingButton";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import FollowsButton from "./FollowsButton";
 
 function ProfileHeader({ user }) {
   const follows = useSelector((state) => state.follows);
   const loggedUser = useSelector((state) => state.user._doc);
-
-  function aux_buttonSelection() {
-    if (user.id !== loggedUser._id && follows.followers.includes(loggedUser._id)) {
-      return <FollowingButton user={user} />;
-    } else if (user.id !== loggedUser._id) {
-      return <FollowButton user={user} />;
-    } else {
-      return null;
-    }
-  }
 
   return (
     user && (
@@ -37,14 +28,7 @@ function ProfileHeader({ user }) {
           </div>
           <div id="profileInfo" className="row justify-content-end border">
             <div className="col-4 col-md-3 align-self-center p-0">
-              {/* {follows &&
-              user.id !== loggedUser._id &&
-              follows.followers.includes(loggedUser._id) ? (
-                <FollowingButton user={user} />
-              ) : user.id !== loggedUser._id ? (
-                <FollowButton user={user} />
-              ) : null} */}
-              {aux_buttonSelection()}
+              <FollowsButton user={user} />
             </div>
             <div className="row d-flex align-self-end justify-content-md-between p-0 m-0">
               <div className="col-12 col-md-auto align-self-end p-0">
