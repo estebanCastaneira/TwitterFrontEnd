@@ -17,15 +17,17 @@ function Home() {
   useEffect(() => {
     async function getTweetsInfo() {
       try {
-        const response = await axios({
-          method: "GET",
-          url: `http://localhost:3000/tweets`,
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
+        if(tweets.length === 0){
+          const response = await axios({
+            method: "GET",
+            url: `http://localhost:3000/tweets`,
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          });
 
-        dispatch(setTweets(response.data));
+          dispatch(setTweets(response.data));
+        }
       } catch (error) {
         console.log("Error fetching tweets:", error);
       }
