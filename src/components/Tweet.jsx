@@ -12,7 +12,7 @@ function Tweet({ tweet }) {
   return (
     <div className="card-footer tweet">
       <div className="d-flex row g-0 justify-content-between border border-top-0 p-2">
-        <div className="col-2 m-0">
+        <div className="col-1 m-0 ms-1">
           <Link
             className="text-decoration-none text-black"
             to={isProfilePage ? "#" : `profile/${tweet.author.username}`}
@@ -60,7 +60,9 @@ function Tweet({ tweet }) {
             <div className="d-flex">
               <LikeButton key={tweet.id} tweet={tweet} />
             </div>
-            {user.username === tweet.author.username && <DeleteTweet key={tweet.id} tweet={tweet} />}
+            {user.username === tweet.author.username && (
+              <DeleteTweet key={tweet.id} tweet={tweet} />
+            )}
           </div>
         </div>
       </div>
