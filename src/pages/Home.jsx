@@ -14,6 +14,7 @@ function Home() {
   const tweets = useSelector((state) => state.tweets);
   const dispatch = useDispatch();
   const sortedTweets = [...tweets].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+  sortedTweets.length = 20;
   useEffect(() => {
     async function getTweetsInfo() {
       try {
@@ -25,7 +26,6 @@ function Home() {
               Authorization: `Bearer ${user.token}`,
             },
           });
-
           dispatch(setTweets(response.data));
         }
       } catch (error) {
@@ -45,7 +45,7 @@ function Home() {
           <div className="col-9 col-lg-6 col-xl-5 p-0">
             <TweetForm user={user} />
             {sortedTweets.map((tweet) => (
-              <Tweet key={tweet._id} tweet={tweet} />
+              <Tweet key={tweet.id} tweet={tweet} />
             ))}
           </div>
           <div className="col-2 col-lg-4">

@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { setFollowers, setFollowing } from "../redux/followsSlice";
+import { setNewTweets } from "../redux/tweetSlice";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function Profile() {
         },
       });
       setUserInfo(response.data);
+      dispatch(setNewTweets(response.data));
       dispatch(setFollowers(response.data.followers));
       dispatch(setFollowing(response.data.following));
     }

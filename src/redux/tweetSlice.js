@@ -7,6 +7,20 @@ const tweetSlice = createSlice({
     setTweets(state, action) {
       return action.payload;
     },
+    setNewTweets(state, action) {
+      const user = action.payload;
+      const tweetsToCompare = action.payload.tweets.map(tweet => { 
+        return {...tweet, author : {
+        id: user.id,
+        fistname: user.firstname,
+        lastname: user.lastname,
+        username: user.username,
+        avatar: user.avatar
+      }}})
+      console.log(tweetsToCompare)
+      const newTweets = tweetsToCompare.filter( newTweet => state.some(tweet => tweet.author.username !== newTweet.author.username ) )
+      //state.push(...newTweets) 
+    },
     resetTweets(state) {
       return [];
     },
@@ -26,5 +40,5 @@ const tweetSlice = createSlice({
 });
 
 const { actions, reducer } = tweetSlice;
-export const { setTweets, resetTweets, toggleLike, createTweet, deleteTweet } = actions;
+export const { setTweets, resetTweets, toggleLike, createTweet, deleteTweet, setNewTweets } = actions;
 export default reducer;

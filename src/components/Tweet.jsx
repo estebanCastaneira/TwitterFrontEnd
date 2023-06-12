@@ -58,9 +58,9 @@ function Tweet({ tweet }) {
           {/* <!-- tweet text --> */}
           <div className="col-12 d-flex justify-content-between align-items-center">
             <div className="d-flex">
-              <LikeButton tweet={tweet} />
+              <LikeButton key={tweet.id} tweet={tweet} />
             </div>
-            {user.username === tweet.author.username && <DeleteTweet tweet={tweet} />}
+            {user.username === tweet.author.username && <DeleteTweet key={tweet.id} tweet={tweet} />}
           </div>
         </div>
       </div>
