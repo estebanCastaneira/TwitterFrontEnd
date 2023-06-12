@@ -9,6 +9,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setFollowing } from "../redux/followsSlice";
+import Header from "../components/Header";
 
 function Following() {
   const [user, setUser] = useState("");
@@ -17,6 +18,7 @@ function Following() {
   const token = useSelector((state) => state.user.token);
   const following = useSelector((state) => state.follows.following);
   const username = params.username;
+  const pageTitle = "Following";
 
   const navigate = useNavigate();
   const handleGoBack = () => {
@@ -41,6 +43,7 @@ function Following() {
   return (
     following && (
       <div className="container">
+        <Header title={pageTitle} />
         <div className="row m-0 p-0 justify-content-center">
           <div className="col-2 col-md-2 col-lg-2">
             <Sidebar />

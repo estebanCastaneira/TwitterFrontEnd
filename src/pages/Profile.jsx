@@ -9,6 +9,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { setFollowers, setFollowing } from "../redux/followsSlice";
 import { setNewTweets } from "../redux/tweetSlice";
+import Header from "../components/Header";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function Profile() {
   const token = useSelector((state) => state.user.token);
   const tweets = useSelector((state) => state.tweets);
   const sortedTweets = [...tweets].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
   useEffect(() => {
     async function getUserInfo() {
       const response = await axios({
@@ -36,6 +38,7 @@ function Profile() {
 
   return (
     <>
+      {userInfo && <Header title={`${userInfo.firstname} ${userInfo.username}`} />}
       <div className="container">
         <div className="row m-0 p-0 justify-content-center">
           <div className="col-2 col-md-2 col-lg-2">

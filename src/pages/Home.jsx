@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setTweets } from "../redux/tweetSlice";
+import Header from "../components/Header";
 
 function Home() {
   const user = useSelector((state) => state.user);
@@ -15,6 +16,8 @@ function Home() {
   const dispatch = useDispatch();
   const sortedTweets = [...tweets].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   sortedTweets.length = 20;
+  const pageTitle = "Explorar / Twitter";
+
   useEffect(() => {
     async function getTweetsInfo() {
       try {
@@ -37,6 +40,7 @@ function Home() {
 
   return (
     <>
+      <Header title={pageTitle} />
       <div className="container">
         <div className="row m-0 p-0 justify-content-center">
           <div className="col-2 col-md-2 col-lg-2">
