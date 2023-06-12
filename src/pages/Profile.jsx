@@ -15,6 +15,7 @@ function Profile() {
   const [userInfo, setUserInfo] = useState(null);
   const token = useSelector((state) => state.user.token);
   const tweets = useSelector((state) => state.tweets);
+  const sortedTweets = [...tweets].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   useEffect(() => {
     async function getUserInfo() {
       const response = await axios({
@@ -42,7 +43,7 @@ function Profile() {
             <ProfileHeader user={userInfo} />
             <div>
               {userInfo &&
-                tweets.map((tweet) => {
+                sortedTweets.map((tweet) => {
                   if (userInfo.username === tweet.author.username) {
                     return <Tweet key={tweet._id} tweet={tweet} />;
                   }

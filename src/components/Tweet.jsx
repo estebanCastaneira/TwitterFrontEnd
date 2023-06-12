@@ -47,7 +47,7 @@ function Tweet({ tweet }) {
                       addSuffix: true,
                       locale: enUS,
                     })
-                  : format(new Date(tweet.createdAt), "dd MMMM", { locale: enUS })}
+                  : format(new Date(tweet.createdAt), "MMMM do yyyy", { locale: enUS })}
               </small>
             </div>
           </div>

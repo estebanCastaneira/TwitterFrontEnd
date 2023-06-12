@@ -13,20 +13,21 @@ function Home() {
   const user = useSelector((state) => state.user);
   const tweets = useSelector((state) => state.tweets);
   const dispatch = useDispatch();
-
+  const sortedTweets = [...tweets].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   useEffect(() => {
     async function getTweetsInfo() {
       try {
-        const response = await axios({
-          method: "GET",
-          url: `http://localhost:3000/tweets`,
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
-        
+        if(tweets.length === 0){
+          const response = await axios({
+            method: "GET",
+            url: `http://localhost:3000/tweets`,
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          });
 
-        dispatch(setTweets(response.data));
+          dispatch(setTweets(response.data));
+        }
       } catch (error) {
         console.log("Error fetching tweets:", error);
       }
@@ -43,7 +44,7 @@ function Home() {
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
             <TweetForm user={user} />
-            {tweets && tweets.map((tweet) => (
+            {sortedTweets.map((tweet) => (
               <Tweet key={tweet._id} tweet={tweet} />
             ))}
           </div>
