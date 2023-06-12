@@ -4,15 +4,17 @@ import ProfileHeader from "../components/ProfileHeader";
 import "./profile_styles.css";
 import Tweet from "../components/Tweet";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { setFollowers, setFollowing } from "../redux/followsSlice";
 
 function Profile() {
+  const dispatch = useDispatch();
   const params = useParams();
   const [userInfo, setUserInfo] = useState(null);
   const token = useSelector((state) => state.user.token);
-  const tweets = useSelector((state) => state.tweets)
+  const tweets = useSelector((state) => state.tweets);
   useEffect(() => {
     async function getUserInfo() {
       const response = await axios({
@@ -23,6 +25,8 @@ function Profile() {
         },
       });
       setUserInfo(response.data);
+      dispatch(setFollowers(response.data.followers));
+      dispatch(setFollowing(response.data.following));
     }
     getUserInfo();
   }, []);
@@ -39,11 +43,10 @@ function Profile() {
             <div>
               {userInfo &&
                 tweets.map((tweet) => {
-                  if(userInfo.username === tweet.author.username){
-                    return <Tweet key={tweet._id} tweet={tweet} />
+                  if (userInfo.username === tweet.author.username) {
+                    return <Tweet key={tweet._id} tweet={tweet} />;
                   }
-                })
-              }
+                })}
             </div>
           </div>
           <div className="col-2 col-lg-4">

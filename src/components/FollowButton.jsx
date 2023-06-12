@@ -1,15 +1,26 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { follow } from "../redux/userSlice";
-import { follow } from "../redux/followsSlice";
+import { follow, crossFollow, followOnProfile } from "../redux/followsSlice";
 import axios from "axios";
 
 function FollowButton({ user }) {
-  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.user);
+  const token = userInfo.token;
+  const loggedUser = userInfo._doc;
 
   const handleClick = () => {
-    dispatch(follow(user));
+    const pageOn = location.pathname;
+
+    function dinamicDispatch(pageOn) {
+      if (pageOn.includes("profile")) {
+        dispatch(followOnProfile(loggedUser._id));
+      } else {
+        dispatch(follow(user));
+        dispatch(crossFollow({ userId: user._id, loggedUserId: loggedUser._id }));
+      }
+    }
+    dinamicDispatch(pageOn);
 
     async function saveFollowDb() {
       const response = await axios({
@@ -19,7 +30,6 @@ function FollowButton({ user }) {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data);
     }
     saveFollowDb();
   };

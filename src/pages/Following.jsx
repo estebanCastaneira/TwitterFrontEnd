@@ -12,6 +12,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setFollowing } from "../redux/followsSlice";
 
 function Following() {
+  const [user, setUser] = useState("");
   const dispatch = useDispatch();
   const params = useParams();
   const token = useSelector((state) => state.user.token);
@@ -27,17 +28,17 @@ function Following() {
     async function getUserInfo() {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:3000/following/${params.username}`,
+        url: `http://localhost:3000/following/${username}`,
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      dispatch(setFollowing(response.data.user.following));
+      dispatch(setFollowing(response.data.following));
+      setUser(response.data);
     }
     getUserInfo();
   }, []);
 
-  following && console.log(following);
   return (
     following && (
       <div className="container">
@@ -47,7 +48,7 @@ function Following() {
           </div>
           <div className="col-9 col-lg-6 col-xl-5 p-0">
             <div className="container-sm mw-50 pb-0 border">
-              <div className="d-flex flex-row align-items-center">
+              <div className="d-flex flex-row align-items-center ">
                 <div className="col-1 align-item-center me-2">
                   <Link className="text-black" onClick={handleGoBack}>
                     <i className="bi bi-arrow-left circle-hover"></i>
@@ -55,16 +56,16 @@ function Following() {
                 </div>
                 <div className="col-10 col-md-8 ps-2 ps-md-0">
                   <h1 className="m-0 main-username mt-3">
-                    {following.firstname} {following.lastname}
+                    {user.firstname} {user.lastname}
                   </h1>
-                  <p className="main-usertext m-0 text-body-tertiary">{following.username}</p>
+                  <p className="main-usertext m-0 text-body-tertiary">{user.username}</p>
                 </div>
               </div>
-              <FollowersNav username={username} />
+              <FollowersNav username={user.username} />
 
               {following &&
                 following.map((user) => {
-                  return <FollowersCard key={user._id} user={user} />;
+                  return <FollowersCard key={user.id} user={user} />;
                 })}
             </div>
           </div>
