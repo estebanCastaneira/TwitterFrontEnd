@@ -17,9 +17,8 @@ const tweetSlice = createSlice({
         username: user.username,
         avatar: user.avatar
       }}})
-      console.log(tweetsToCompare)
-      const newTweets = tweetsToCompare.filter( newTweet => state.some(tweet => tweet.author.username !== newTweet.author.username ) )
-      //state.push(...newTweets) 
+      const newTweets = tweetsToCompare.filter( newTweet => !state.some(tweet => tweet.author.username === newTweet.author.username ) )
+      state.push(...newTweets) 
     },
     resetTweets(state) {
       return [];

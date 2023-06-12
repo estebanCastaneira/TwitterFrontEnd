@@ -45,7 +45,7 @@ function Home() {
           <div className="col-9 col-lg-6 col-xl-5 p-0">
             <TweetForm user={user} />
             {sortedTweets.map((tweet) => (
-              <Tweet key={tweet.id} tweet={tweet} />
+              <Tweet key={tweet._id} tweet={tweet} />
             ))}
           </div>
           <div className="col-2 col-lg-4">
