@@ -1,6 +1,4 @@
 import React from "react";
-import FollowButton from "./FollowButton";
-import FollowingButton from "./FollowingButton";
 
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
