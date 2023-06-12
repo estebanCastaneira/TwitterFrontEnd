@@ -1,8 +1,24 @@
 import React from "react";
 import FollowButton from "./FollowButton";
+import FollowingButton from "./FollowingButton";
+
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function ProfileHeader({ user }) {
+  const follows = useSelector((state) => state.follows);
+  const loggedUser = useSelector((state) => state.user._doc);
+
+  function aux_buttonSelection() {
+    if (user.id !== loggedUser._id && follows.followers.includes(loggedUser._id)) {
+      return <FollowingButton user={user} />;
+    } else if (user.id !== loggedUser._id) {
+      return <FollowButton user={user} />;
+    } else {
+      return null;
+    }
+  }
+
   return (
     user && (
       <div>
@@ -21,7 +37,14 @@ function ProfileHeader({ user }) {
           </div>
           <div id="profileInfo" className="row justify-content-end border">
             <div className="col-4 col-md-3 align-self-center p-0">
-              <FollowButton />
+              {/* {follows &&
+              user.id !== loggedUser._id &&
+              follows.followers.includes(loggedUser._id) ? (
+                <FollowingButton user={user} />
+              ) : user.id !== loggedUser._id ? (
+                <FollowButton user={user} />
+              ) : null} */}
+              {aux_buttonSelection()}
             </div>
             <div className="row d-flex align-self-end justify-content-md-between p-0 m-0">
               <div className="col-12 col-md-auto align-self-end p-0">
@@ -39,7 +62,9 @@ function ProfileHeader({ user }) {
                     to={`/followers/${user.username}`}
                   >
                     <p className="m-0 d-inline-block">
-                      <strong className="text-black follow-number">{user.followers.length} </strong>
+                      <strong className="text-black follow-number">
+                        {follows.followers.length}{" "}
+                      </strong>
                       <span className="main-usertext text-body-tertiary">Followers</span>
                     </p>
                   </Link>
@@ -48,7 +73,9 @@ function ProfileHeader({ user }) {
                     to={`/following/${user.username}`}
                   >
                     <p className="m-0 d-inline-block">
-                      <strong className="text-black follow-number">{user.following.length} </strong>
+                      <strong className="text-black follow-number">
+                        {follows.following.length}{" "}
+                      </strong>
                       <span className="main-usertext text-body-tertiary mt-0">Following</span>
                     </p>
                   </Link>

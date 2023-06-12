@@ -1,14 +1,28 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { unFollow } from "../redux/followsSlice";
+import { unFollow, crossUnFollow, unFollowOnProfile } from "../redux/followsSlice";
 import axios from "axios";
 
 function FollowingButton({ user }) {
-  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
+  const userInfo = useSelector((state) => state.user);
+  const token = userInfo.token;
+  const loggedUser = userInfo._doc;
 
   const handleClick = () => {
-    dispatch(unFollow(user));
+    const pageOn = location.pathname;
+
+    function dinamicDispatch(pageOn) {
+      if (pageOn.includes("followers")) {
+        dispatch(unFollow(user));
+        dispatch(crossUnFollow({ userId: user._id, loggedUserId: loggedUser._id }));
+      } else if (pageOn.includes("following")) {
+        dispatch(unFollow(user));
+      } else if (pageOn.includes("profile")) {
+        dispatch(unFollowOnProfile(loggedUser));
+      }
+    }
+    dinamicDispatch(pageOn);
 
     async function saveUnFollowDb() {
       const response = await axios({
@@ -18,7 +32,6 @@ function FollowingButton({ user }) {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(response.data);
     }
     saveUnFollowDb();
   };
