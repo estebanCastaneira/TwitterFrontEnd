@@ -13,7 +13,7 @@ function Home() {
   const user = useSelector((state) => state.user);
   const tweets = useSelector((state) => state.tweets);
   const dispatch = useDispatch();
-
+  const sortedTweets = [...tweets].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   useEffect(() => {
     async function getTweetsInfo() {
       try {
@@ -34,8 +34,6 @@ function Home() {
     }
     getTweetsInfo();
   }, []);
-
-  const sortedTweets = [...tweets].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   return (
     <>
