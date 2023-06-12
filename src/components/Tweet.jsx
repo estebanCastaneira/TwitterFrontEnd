@@ -47,7 +47,7 @@ function Tweet({ tweet }) {
                       addSuffix: true,
                       locale: enUS,
                     })
-                  : format(new Date(tweet.createdAt), "dd MMMM", { locale: enUS })}
+                  : format(new Date(tweet.createdAt), "dd MMMM yyyy", { locale: enUS })}
               </small>
             </div>
           </div>
@@ -60,7 +60,7 @@ function Tweet({ tweet }) {
             <div className="d-flex">
               <LikeButton tweet={tweet} />
             </div>
-            {user.username === tweet.author.username && <DeleteTweet tweet={tweet}/>}
+            {user.username === tweet.author.username && <DeleteTweet tweet={tweet} />}
           </div>
         </div>
       </div>
