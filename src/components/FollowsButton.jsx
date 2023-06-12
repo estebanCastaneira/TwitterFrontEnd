@@ -44,16 +44,18 @@ function FollowsButton({ user }) {
 
   return (
     <div className="text-center me-2">
-      <button
-        className={
-          alreadyFollowing
-            ? "btn mt-1 btn-outline-dark rounded-pill fw-bold followingBtn w-100"
-            : "btn mt-1 rounded-pill fw-bold followBtn w-100"
-        }
-        onClick={alreadyFollowing ? handleFollowing : handleFollow}
-      >
-        {alreadyFollowing ? "Following" : "Follow"}
-      </button>
+      {loggedUser._id !== user.id ? (
+        <button
+          className={
+            alreadyFollowing
+              ? "btn mt-1 btn-outline-dark rounded-pill fw-bold followingBtn w-100"
+              : "btn mt-1 rounded-pill fw-bold followBtn w-100"
+          }
+          onClick={alreadyFollowing ? handleFollowing : handleFollow}
+        >
+          {alreadyFollowing ? "Following" : "Follow"}
+        </button>
+      ) : null}
     </div>
   );
 }

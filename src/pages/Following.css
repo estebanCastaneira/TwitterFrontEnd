@@ -38,19 +38,22 @@ body {
   color: white;
 }
 
+.underline {
+  border-bottom: 4px solid #1d9bf0;
+}
+
 .follow-text {
   display: inline-block;
   font-size: 1rem;
   font-weight: bolder;
   margin-bottom: 0;
-  border-bottom: 4px solid transparent;
   padding-bottom: 10px;
   transition: border-bottom 0.3s ease-in-out;
 }
-.follow-text:hover {
+/* .follow-text:hover {
   border-bottom: 4px solid #1d9bf0;
   padding-bottom: 10px;
-}
+} */
 
 .circle-hover {
   display: inline-block;
