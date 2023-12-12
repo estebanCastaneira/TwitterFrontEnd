@@ -18,7 +18,7 @@ function FollowsButton({ user }) {
     async function saveFollowDb() {
       await axios({
         method: "PATCH",
-        url: `http://localhost:3000/follow/${user.id}`,
+        url: `${import.meta.env.VITE_URL_BACK}/follow/${user.id}`,
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -33,7 +33,7 @@ function FollowsButton({ user }) {
     async function saveFollowDb() {
       await axios({
         method: "PATCH",
-        url: `http://localhost:3000/unfollow/${user.id}`,
+        url: `${import.meta.env.VITE_URL_BACK}/unfollow/${user.id}`,
         headers: {
           Authorization: `Bearer ${token}`,
         },

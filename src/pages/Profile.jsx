@@ -23,7 +23,7 @@ function Profile() {
     async function getUserInfo() {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:3000/users/${params.username}`,
+        url: `${import.meta.env.VITE_URL_BACK}/users/${params.username}`,
         headers: {
           Authorization: `Bearer ${token}`,
         },

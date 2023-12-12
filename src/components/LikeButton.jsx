@@ -12,7 +12,7 @@ function LikeButton({ tweet }) {
     e.preventDefault();
     const response = await axios({
       method: "PATCH",
-      url: `http://localhost:3000/tweets/${tweet._id}/like`,
+      url: `${import.meta.env.VITE_URL_BACK}/tweets/${tweet._id}/like`,
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -20,7 +20,7 @@ function Sidebar() {
     if (tweetContent) {
       const response = await axios({
         method: "POST",
-        url: "http://localhost:3000/tweets",
+        url: `${import.meta.env.VITE_URL_BACK}/tweets`,
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -51,7 +51,7 @@ function Sidebar() {
       >
         <div className="mt-4 m-0">
           <Link className="btn mb-4 p-0 ps-1  sidebar_button" to="/" role="button">
-            <img src="/public/img/icons/twitter-logo.svg" alt="tweet" />
+            <img src="/img/icons/twitter-logo.svg" alt="tweet" />
           </Link>
 
           <Link
@@ -97,7 +97,7 @@ function Sidebar() {
         <Link
           id="logoutButton"
           className="btn mt-1 rounded-pill w-100 fw-semibold d-none d-xl-inline-block mt-auto position-absolute bottom-0"
-          to="/login"
+          to="/"
           role="button"
           onClick={handleLogout}
         >
@@ -106,7 +106,7 @@ function Sidebar() {
         <Link
           id="sidebarIconLogout"
           className="rounded-circle p-2 d-xl-none sidebar_button mt-auto position-absolute bottom-0"
-          to="/login"
+          to="/"
           role="button"
           onClick={handleLogout}
         >

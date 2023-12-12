@@ -28,7 +28,7 @@ function Followers() {
     async function getUserInfo() {
       const response = await axios({
         method: "GET",
-        url: `http://localhost:3000/followers/${username}`,
+        url: `${import.meta.env.VITE_URL_BACK}/followers/${username}`,
         headers: {
           Authorization: `Bearer ${token}`,
         },

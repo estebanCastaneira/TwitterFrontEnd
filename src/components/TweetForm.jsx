@@ -19,7 +19,7 @@ function TweetForm() {
       setTweetContent("");
       const response = await axios({
         method: "POST",
-        url: "http://localhost:3000/tweets",
+        url: `${import.meta.env.VITE_URL_BACK}/tweets`,
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -24,7 +24,7 @@ function Home() {
         if (tweets.length === 0) {
           const response = await axios({
             method: "GET",
-            url: `http://localhost:3000/tweets`,
+            url: `${import.meta.env.VITE_URL_BACK}/tweets`,
             headers: {
               Authorization: `Bearer ${user.token}`,
             },

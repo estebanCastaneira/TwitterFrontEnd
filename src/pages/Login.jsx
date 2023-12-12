@@ -23,25 +23,23 @@ function Login() {
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate("/home");
     }
   }, [user]);
 
-  const isLoginPage = location.pathname === "/login";
+  const isLoginPage = location.pathname === "/";
 
   async function handleLogin(event, identifier = identifierValue) {
     event.preventDefault();
 
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/token",
+      url: `${import.meta.env.VITE_URL_BACK}/token`,
       data: {
         identifier: identifier,
         password: passwordValue,
       },
     });
-
- 
 
     const token = response.data.token;
     if (token) {
@@ -66,7 +64,7 @@ function Login() {
 
     const response = await axios({
       method: "POST",
-      url: "http://localhost:3000/users",
+      url: `${import.meta.env.VITE_URL_BACK}/users`,
       data: userData,
       headers: {
         "Content-Type": "multipart/form-data",
@@ -137,6 +135,9 @@ function Login() {
                     </button>
                     <p className="small mt-2 pt-1 mb-0 text-center">
                       Don't have an account? <Link to="/register">Sign Up</Link>
+                    </p>
+                    <p className="small text-center">
+                      Pssst!...Try username: @Uribe password: `123`
                     </p>
                   </div>
                 </form>
@@ -228,7 +229,7 @@ function Login() {
                       Sign up
                     </button>
                     <p className="small mt-2 pt-1 mb-0 text-center">
-                      Already have an account? <Link to="/login">Sign in</Link>
+                      Already have an account? <Link to="/">Sign in</Link>
                     </p>
                   </div>
                 </form>
